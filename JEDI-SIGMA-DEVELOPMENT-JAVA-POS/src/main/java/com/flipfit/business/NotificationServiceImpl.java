@@ -1,8 +1,8 @@
-package com.flipfit.business
+package com.flipfit.business;
 
 public class NotificationServiceImpl implements NotificationService {
     @Override
-    public void Send(){
+    public void send(){
         System.out.println("Notification was sent");
     }
 }

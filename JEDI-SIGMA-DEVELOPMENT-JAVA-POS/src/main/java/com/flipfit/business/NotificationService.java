@@ -1,4 +1,4 @@
-package com.flipfit.business
+package com.flipfit.business;
 
 public interface NotificationService {
     void send();

@@ -1,6 +1,7 @@
-package com.flipfit.bean
+package com.flipfit.bean;
 
-import java.util.localDateTime
+import java.time.LocalDateTime;
+
 
 public class Waitlist {
     private String waitlistId;

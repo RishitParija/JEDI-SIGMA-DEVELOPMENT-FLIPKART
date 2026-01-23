@@ -3,7 +3,7 @@ package com.flipfit.bean;
 import java.time.LocalDateTime;
 
 public class Notification {
-    private rivate String notificationId;
+    private String notificationId;
     private String message;
     private LocalDateTime sentAt;
     private String type;
