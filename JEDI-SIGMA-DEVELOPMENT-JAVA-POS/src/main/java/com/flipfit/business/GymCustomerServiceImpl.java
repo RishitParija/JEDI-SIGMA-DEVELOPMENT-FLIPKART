@@ -2,7 +2,7 @@ package com.flipfit.business;
 
 import java.time.LocalDate;
 
-public class CustomerServiceImpl implements CustomerService {
+public class GymCustomerServiceImpl implements GymCustomerService {
     @Override
     public void viewGymsByCity(String city) {
         System.out.println("Fetching gyms in " + city);

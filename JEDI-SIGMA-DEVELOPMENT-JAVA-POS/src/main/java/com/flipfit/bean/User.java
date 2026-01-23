@@ -1,13 +1,40 @@
 package com.flipfit.bean;
 
-public interface User {
-    String getUserId();
-    void setUserId(String userId);
-    String getName();
-    String getEmail();
-    String getPasswordHash();
-    String getRole(); // Changed from Enum to String
+public abstract class User {
+    String userId;
+    String name;
+    String email;
+    String hashedPassword;
 
-    void login();
-    void logout();
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
+    }
 }
