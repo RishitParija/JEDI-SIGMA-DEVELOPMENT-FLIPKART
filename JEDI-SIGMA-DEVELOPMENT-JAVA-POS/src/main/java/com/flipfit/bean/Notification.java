@@ -3,11 +3,11 @@ package com.flipfit.bean;
 import java.time.LocalDateTime;
 
 public class Notification {
-    String notificationId;
-    String message;
-    LocalDateTime sentAt;
-    String type;
-    String status;
+    private rivate String notificationId;
+    private String message;
+    private LocalDateTime sentAt;
+    private String type;
+    private String status;
 
     public String getNotificationId() {
         return notificationId;

@@ -1,10 +1,10 @@
 package com.flipfit.bean;
 
 public abstract class User {
-    String userId;
-    String name;
-    String email;
-    String hashedPassword;
+    private String userId;
+    private String name;
+    private String email;
+    private String hashedPassword;
 
     public String getUserId() {
         return userId;
