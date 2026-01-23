@@ -27,13 +27,7 @@ public class GymOwner extends User {
     public String getEmail() { return email; }
     @Override
     public String getPasswordHash() { return passwordHash; }
-    @Override
-    public String getRole() { return "GYM_OWNER"; }
 
-    @Override
-    public void login() { System.out.println("Owner " + name + " logged in."); }
-    @Override
-    public void logout() { System.out.println("Owner " + name + " logged out."); }
 
     public String getPanCard() { return panCard; }
     public Boolean getIsVerified() { return isVerified; }

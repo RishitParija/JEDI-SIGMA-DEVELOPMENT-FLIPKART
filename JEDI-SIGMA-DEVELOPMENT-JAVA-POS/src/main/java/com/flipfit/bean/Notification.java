@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Notification {
     String notificationId;
     String message;
-    DateTime sentAt;
+    LocalDateTime sentAt;
     String type;
     String status;
 
@@ -25,11 +25,11 @@ public class Notification {
         this.message = message;
     }
 
-    public DateTime getSentAt() {
+    public LocalDateTime getSentAt() {
         return sentAt;
     }
 
-    public void setSentAt(DateTime sentAt) {
+    public void setSentAt(LocalDateTime sentAt) {
         this.sentAt = sentAt;
     }
 

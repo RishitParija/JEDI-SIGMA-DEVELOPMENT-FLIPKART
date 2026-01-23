@@ -25,11 +25,5 @@ public class GymAdmin extends User {
     public String getEmail() { return email; }
     @Override
     public String getPasswordHash() { return passwordHash; }
-    @Override
-    public String getRole() { return "GYM_ADMIN"; }
 
-    @Override
-    public void login() { System.out.println("Admin " + name + " logged in."); }
-    @Override
-    public void logout() { System.out.println("Admin " + name + " logged out."); }
 }

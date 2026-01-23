@@ -25,13 +25,6 @@ public class GymCustomer extends User {
     public String getEmail() { return email; }
     @Override
     public String getPasswordHash() { return passwordHash; }
-    @Override
-    public String getRole() { return "GYM_CUSTOMER"; }
-
-    @Override
-    public void login() { System.out.println("Customer " + name + " logged in."); }
-    @Override
-    public void logout() { System.out.println("Customer " + name + " logged out."); }
 
     public Double getWalletBalance() { return walletBalance; }
     public void setWalletBalance(Double walletBalance) { this.walletBalance = walletBalance; }

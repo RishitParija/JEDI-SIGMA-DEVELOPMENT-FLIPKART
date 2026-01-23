@@ -30,7 +30,7 @@ public abstract class User {
         this.email = email;
     }
 
-    public String getHashedPassword() {
+    public String getPasswordHash() {
         return hashedPassword;
     }
 
