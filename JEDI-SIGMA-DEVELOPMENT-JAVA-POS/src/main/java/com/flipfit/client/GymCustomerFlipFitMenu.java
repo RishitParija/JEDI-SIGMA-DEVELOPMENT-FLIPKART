@@ -7,11 +7,14 @@ import com.flipfit.business.GymCustomerServiceImpl;
 import com.flipfit.business.BookingService;
 import com.flipfit.business.BookingServiceImpl;
 import com.flipfit.bean.GymCustomer;
+import com.flipfit.business.NotificationService;
+import com.flipfit.business.NotificationServiceImpl;
 
 public class GymCustomerFlipFitMenu {
 
     GymCustomerService service = new GymCustomerServiceImpl();
     BookingService bookingService = new BookingServiceImpl();
+    NotificationService notificationService = new NotificationServiceImpl();
     Scanner scanner = new Scanner(System.in);
 
     public void customerMenu(GymCustomer customer) {
@@ -23,7 +26,8 @@ public class GymCustomerFlipFitMenu {
             System.out.println("2. Book Slot");
             System.out.println("3. Cancel Booking");
             System.out.println("4. View My Bookings");
-            System.out.println("5. Exit (Back to Main Menu)");
+            System.out.println("5. View Notifications");
+            System.out.println("6. Exit (Back to Main Menu)");
             System.out.print("Enter your choice: ");
 
             // Check if input is int
@@ -142,6 +146,18 @@ public class GymCustomerFlipFitMenu {
                 }
 
             } else if (choice == 5) {
+                // View Notifications
+                System.out.println("--- Notifications ---");
+                List<String> notifs = notificationService.getNotifications(customer.getUserId());
+                if (notifs.isEmpty()) {
+                    System.out.println("No notifications.");
+                } else {
+                    for (String msg : notifs) {
+                        System.out.println("- " + msg);
+                    }
+                }
+
+            } else if (choice == 6) {
                 return;
             } else {
                 System.out.println("Invalid choice. Please try again.");
@@ -202,7 +218,31 @@ public class GymCustomerFlipFitMenu {
                 com.flipfit.bean.Schedule selectedSchedule = allSchedules.get(slotChoice - 1);
 
                 if (selectedSchedule.getAvailableSeats() > 0) {
-                    bookingService.addBooking(customer.getUserId(), selectedSchedule.getScheduleId());
+                    System.out.println("Proceed to Pay Rs. 500? (y/n)");
+                    String payResp = scanner.next();
+                    if (payResp.equalsIgnoreCase("y")) {
+                        // Mock Payment
+                        System.out.println("Processing Payment...");
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                        }
+                        System.out.println("Payment of RS. 500 successful");
+                        notificationService.sendNotification(customer.getUserId(), "Payment of RS. 500 successful");
+
+                        com.flipfit.bean.Booking booking = bookingService.addBooking(customer.getUserId(),
+                                selectedSchedule.getScheduleId());
+                        if (booking != null) {
+                            notificationService.sendNotification(customer.getUserId(),
+                                    "Booking Confirmed for Slot " + selectedSchedule.getScheduleId());
+                        } else {
+                            System.out.println("Booking Failed. Refund initiated.");
+                            notificationService.sendNotification(customer.getUserId(),
+                                    "Booking Failed. Refund initiated.");
+                        }
+                    } else {
+                        System.out.println("Payment Cancelled.");
+                    }
                 } else {
                     System.out.println("Slot is FULL. Do you want to join the Waitlist? (y/n)");
                     String wlResp = scanner.next();

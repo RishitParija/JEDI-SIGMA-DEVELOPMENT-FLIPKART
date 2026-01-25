@@ -12,6 +12,7 @@ import java.util.UUID;
 
 public class FlipFitApplication {
     public static void main(String[] args) {
+        com.flipfit.constants.Constants.loadMockData();
         Scanner scanner = new Scanner(System.in);
         GymCustomerService gymCustomerService = new GymCustomerServiceImpl();
         GymOwnerService gymOwnerService = new GymOwnerServiceImpl();

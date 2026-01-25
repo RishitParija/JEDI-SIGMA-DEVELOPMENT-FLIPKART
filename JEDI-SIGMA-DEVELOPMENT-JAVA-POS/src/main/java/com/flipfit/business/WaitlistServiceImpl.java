@@ -27,15 +27,14 @@ public class WaitlistServiceImpl implements WaitlistService {
                 String userId = entry.getUserId();
                 System.out.println("Waitlist Promotion: Promoting User " + userId);
 
-                // Create Booking (Calling BookingService directly might cause circular
-                // dependency if not careful)
-                // Better approach: Return the userId to BookingService, or use a new instance
-                // here if stateless.
-                // Assuming BookingService has static list or using singleton pattern. Current
-                // impl is new instance safe enough for list access?
-                // Wait, BookingServiceImpl uses static list. So logic is safe.
+                // Create Booking
                 BookingService bookingService = new BookingServiceImpl();
                 bookingService.addBooking(userId, scheduleId);
+
+                // Send Notification
+                NotificationService notificationService = new NotificationServiceImpl();
+                notificationService.sendNotification(userId,
+                        "Good news! You have been promoted from waitlist to booked for Slot " + scheduleId);
 
                 // Remove from waitlist
                 waitlistEntries.remove(entry);
