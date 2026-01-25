@@ -1,5 +1,5 @@
 package com.flipfit.business;
 
 public interface NotificationService {
-    void send();
+    void sendNotification(String userId, String message);
 }

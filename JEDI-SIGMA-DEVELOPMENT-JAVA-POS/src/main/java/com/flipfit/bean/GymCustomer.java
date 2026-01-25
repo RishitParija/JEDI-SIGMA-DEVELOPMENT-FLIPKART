@@ -1,31 +1,23 @@
 package com.flipfit.bean;
 
 public class GymCustomer extends User {
-    private String userId;
-    private String name;
-    private String email;
-    private String passwordHash;
     private Double walletBalance;
 
-    public GymCustomer(String userId, String name, String email, String passwordHash, Double walletBalance) {
-        this.userId = userId;
-        this.name = name;
-        this.email = email;
-        this.passwordHash = passwordHash;
+    public GymCustomer(String userId, String username, String name, String email, String passwordHash,
+            Double walletBalance) {
+        this.setUserId(userId);
+        this.setUsername(username);
+        this.setName(name);
+        this.setEmail(email);
+        this.setHashedPassword(passwordHash);
         this.walletBalance = walletBalance;
     }
 
-    @Override
-    public String getUserId() { return userId; }
-    @Override
-    public void setUserId(String userId) { this.userId = userId; }
-    @Override
-    public String getName() { return name; }
-    @Override
-    public String getEmail() { return email; }
-    @Override
-    public String getPasswordHash() { return passwordHash; }
+    public Double getWalletBalance() {
+        return walletBalance;
+    }
 
-    public Double getWalletBalance() { return walletBalance; }
-    public void setWalletBalance(Double walletBalance) { this.walletBalance = walletBalance; }
+    public void setWalletBalance(Double walletBalance) {
+        this.walletBalance = walletBalance;
+    }
 }

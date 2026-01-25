@@ -15,6 +15,19 @@ public class Slot {
         this.endTime = endTime;
     }
 
-    public String getSlotId() { return slotId; }
-    public LocalTime getStartTime() { return startTime; }
+    public String getSlotId() {
+        return slotId;
+    }
+
+    public String getCentreId() {
+        return centreId;
+    } // Needed for linkage
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
 }

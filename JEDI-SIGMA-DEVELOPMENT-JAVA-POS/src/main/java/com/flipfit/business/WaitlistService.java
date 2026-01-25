@@ -1,5 +1,5 @@
-package com.flipfit.business
+package com.flipfit.business;
 
 public interface WaitlistService {
-    void promoteToBooking();
+    void promoteToBooking(String scheduleId);
 }

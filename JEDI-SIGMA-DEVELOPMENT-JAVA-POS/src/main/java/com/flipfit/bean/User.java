@@ -2,6 +2,7 @@ package com.flipfit.bean;
 
 public abstract class User {
     private String userId;
+    private String username;
     private String name;
     private String email;
     private String hashedPassword;
@@ -12,6 +13,14 @@ public abstract class User {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
