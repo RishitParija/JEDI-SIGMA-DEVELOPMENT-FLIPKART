@@ -2,12 +2,18 @@ package com.flipfit.bean;
 
 import java.time.LocalDateTime;
 
-
 public class Waitlist {
     private String waitlistId;
     private String userId;
-    private String scheduledAt;
-    private LocalDateTime joinedAt;
+    private String scheduleId;
+    private LocalDateTime requestDate;
+
+    public Waitlist(String waitlistId, String userId, String scheduleId) {
+        this.waitlistId = waitlistId;
+        this.userId = userId;
+        this.scheduleId = scheduleId;
+        this.requestDate = LocalDateTime.now();
+    }
 
     public String getWaitlistId() {
         return waitlistId;
@@ -25,19 +31,19 @@ public class Waitlist {
         this.userId = userId;
     }
 
-    public String getScheduledAt() {
-        return scheduledAt;
+    public String getScheduleId() {
+        return scheduleId;
     }
 
-    public void setScheduledAt(String scheduledAt) {
-        this.scheduledAt = scheduledAt;
+    public void setScheduleId(String scheduleId) {
+        this.scheduleId = scheduleId;
     }
 
-    public LocalDateTime getJoinedAt() {
-        return joinedAt;
+    public LocalDateTime getRequestDate() {
+        return requestDate;
     }
 
-    public void setJoinedAt(LocalDateTime joinedAt) {
-        this.joinedAt = joinedAt;
+    public void setRequestDate(LocalDateTime requestDate) {
+        this.requestDate = requestDate;
     }
 }

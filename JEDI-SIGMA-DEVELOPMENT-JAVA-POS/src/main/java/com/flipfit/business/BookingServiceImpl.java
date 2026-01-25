@@ -71,11 +71,23 @@ public class BookingServiceImpl implements BookingService {
 
     public boolean cancelBooking(String bookingId) {
         for (Booking b : bookingList) {
-            if (b.getBookingId().equals(bookingId)) {
+            if (b.getBookingId().equals(bookingId) && !b.getStatus().equals("CANCELLED")) {
                 b.setStatus("CANCELLED");
                 System.out.println("Booking Cancelled.");
-                // Trigger waitlist promotion
-                // waitlistService.promoteToBooking(b.getScheduleId());
+
+                // 1. Free up the seat
+                for (com.flipfit.bean.Schedule s : GymOwnerServiceImpl.scheduleList) {
+                    if (s.getScheduleId().equals(b.getScheduleId())) {
+                        s.setAvailableSeats(s.getAvailableSeats() + 1);
+                        System.out.println("Seat freed. Available seats: " + s.getAvailableSeats());
+
+                        // 2. Trigger waitlist promotion
+                        WaitlistService waitlistService = new WaitlistServiceImpl();
+                        waitlistService.promoteToBooking(s.getScheduleId());
+                        break;
+                    }
+                }
+
                 return true;
             }
         }

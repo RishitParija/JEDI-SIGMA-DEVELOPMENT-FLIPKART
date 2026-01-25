@@ -20,7 +20,8 @@ public class GymOwnerFlipFitMenu {
             System.out.println("1. Add Gym Centre");
             System.out.println("2. Add Slot & Schedule");
             System.out.println("3. View Bookings");
-            System.out.println("4. Exit (Back to Main Menu)");
+            System.out.println("4. Cancel Booking");
+            System.out.println("5. Exit (Back to Main Menu)");
             System.out.print("Enter your choice: ");
 
             choice = scanner.nextInt();
@@ -138,6 +139,54 @@ public class GymOwnerFlipFitMenu {
                 }
 
             } else if (choice == 4) {
+                // Cancel Booking (Owner perspective - cancel any booking at their gym?)
+                // Or view bookings and cancel specific ones.
+                // Requirement: "GymOwner... may want to cancel their booking" -> Ambiguous.
+                // Owners cancel CUSTOMER bookings usually. Or cancel the SLOT?
+                // Request says: "for customer he/she may want to cancel... implement waitlist".
+                // And "Update Owner Menu: Cancel Booking Option".
+                // I will allow Owner to cancel ANY booking for their gym (managing
+                // cancellations).
+
+                System.out.println("--- Cancel Customer Booking ---");
+                // 1. Select Gym
+                List<GymCentre> gyms = service.getCentresByOwnerId(owner.getUserId());
+                if (gyms.isEmpty()) {
+                    System.out.println("No gyms found.");
+                } else {
+                    String centerId = null;
+                    if (gyms.size() == 1)
+                        centerId = gyms.get(0).getCentreId();
+                    else {
+                        System.out.println("Select Gym:");
+                        for (int i = 0; i < gyms.size(); i++)
+                            System.out.println((i + 1) + ". " + gyms.get(i).getName());
+                        int gChoice = scanner.nextInt();
+                        if (gChoice > 0 && gChoice <= gyms.size())
+                            centerId = gyms.get(gChoice - 1).getCentreId();
+                    }
+
+                    if (centerId != null) {
+                        com.flipfit.business.BookingService bs = new com.flipfit.business.BookingServiceImpl();
+                        List<com.flipfit.bean.Booking> bookings = bs.getBookingsByGym(centerId);
+                        if (bookings.isEmpty())
+                            System.out.println("No bookings found.");
+                        else {
+                            for (int i = 0; i < bookings.size(); i++) {
+                                System.out.println((i + 1) + ". Booking: " + bookings.get(i).getBookingId() + " (User: "
+                                        + bookings.get(i).getUserId() + ") [" + bookings.get(i).getStatus() + "]");
+                            }
+                            System.out.println("Enter booking number to cancel (0 to exit):");
+                            int bChoice = scanner.nextInt();
+                            if (bChoice > 0 && bChoice <= bookings.size()) {
+                                bs.cancelBooking(bookings.get(bChoice - 1).getBookingId());
+                                System.out.println("Booking cancelled.");
+                            }
+                        }
+                    }
+                }
+
+            } else if (choice == 5) {
                 return;
             } else {
                 System.out.println("Invalid choice. Please try again.");

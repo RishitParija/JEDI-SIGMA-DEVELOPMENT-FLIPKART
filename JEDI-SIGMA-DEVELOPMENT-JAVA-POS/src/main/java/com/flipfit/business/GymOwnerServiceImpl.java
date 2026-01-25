@@ -30,7 +30,7 @@ public class GymOwnerServiceImpl implements GymOwnerService {
         // Find slot to verify?
         // Create Schedule
         com.flipfit.bean.Schedule schedule = new com.flipfit.bean.Schedule(java.util.UUID.randomUUID().toString(),
-                slotId, date, 10); // Default 10 seats
+                slotId, date, 2); // Default 2 seats
         scheduleList.add(schedule);
         System.out.println("Schedule created for Slot " + slotId + " on " + date);
     }
