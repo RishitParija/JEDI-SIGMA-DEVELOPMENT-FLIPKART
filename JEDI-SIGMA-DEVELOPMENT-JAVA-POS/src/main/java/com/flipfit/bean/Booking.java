@@ -6,8 +6,8 @@ public class Booking {
     private String bookingId;
     private String userId;
     private String scheduleId;
-    private String gymId; // Added for easier filtering
-    private LocalDate date; // Date of the slot
+    private String gymId;
+    private LocalDate date;
     private String status;
 
     public Booking(String bookingId, String userId, String scheduleId, String gymId, LocalDate date,

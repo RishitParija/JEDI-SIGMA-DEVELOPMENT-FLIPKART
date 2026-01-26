@@ -18,7 +18,6 @@ public class AdminServiceImpl implements AdminService {
     public void approveGymOwner(String ownerId) {
         for (GymOwner owner : GymOwnerServiceImpl.gymOwnerList) {
             if (owner.getUserId().equals(ownerId)) { // Assuming userId is ownerId, or we might match by name for
-                                                     // simplicity if IDs aren't fully managed yet
                 // But better to use IDs. FlipFitApp generates UUIDs.
                 owner.setIsVerified(true);
                 System.out.println("Gym Owner " + owner.getName() + " approved.");
