@@ -23,17 +23,6 @@ public class GymCustomerServiceImpl implements GymCustomerService {
 
     @Override
     public boolean bookSlot(String gymId, String slotId, LocalDate date) {
-        // This should delegate to BookingService or handle here.
-        // For now adhering to interface, but BookingService is likely better place.
-        // However, the menu calls this. Let's redirect or implement roughly.
-        // Actually, the requirements say "update slot count... remove his current
-        // slot... waitlist feature".
-        // This logic is complex and might belong in BookingService.
-        // But the menu calls THIS method. So I will call BookingService from here.
-        // BookingService logic is handled in the Menu directly now.
-        // Missing userId here in params? The menu needs to be updated to pass userId or
-        // manage session.
-        // For now, I'll print. But I must update GymCustomerService.
         System.out.println("Please use the Booking Service directly or update this method to pass UserID.");
         return false;
     }

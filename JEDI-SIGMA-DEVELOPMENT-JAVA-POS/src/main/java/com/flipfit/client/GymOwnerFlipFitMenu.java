@@ -139,14 +139,7 @@ public class GymOwnerFlipFitMenu {
                 }
 
             } else if (choice == 4) {
-                // Cancel Booking (Owner perspective - cancel any booking at their gym?)
-                // Or view bookings and cancel specific ones.
-                // Requirement: "GymOwner... may want to cancel their booking" -> Ambiguous.
-                // Owners cancel CUSTOMER bookings usually. Or cancel the SLOT?
-                // Request says: "for customer he/she may want to cancel... implement waitlist".
-                // And "Update Owner Menu: Cancel Booking Option".
-                // I will allow Owner to cancel ANY booking for their gym (managing
-                // cancellations).
+                
 
                 System.out.println("--- Cancel Customer Booking ---");
                 // 1. Select Gym

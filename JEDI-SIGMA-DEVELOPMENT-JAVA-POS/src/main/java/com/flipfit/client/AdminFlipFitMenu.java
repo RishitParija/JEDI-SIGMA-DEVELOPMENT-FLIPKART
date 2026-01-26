@@ -25,7 +25,7 @@ public class AdminFlipFitMenu {
             System.out.print("Enter your choice: ");
 
             choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             if (choice == 1) {
                 service.viewAllGyms();
