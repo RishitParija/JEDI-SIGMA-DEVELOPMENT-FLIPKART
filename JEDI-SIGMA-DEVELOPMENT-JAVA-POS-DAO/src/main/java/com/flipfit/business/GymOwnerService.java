@@ -5,16 +5,57 @@ import com.flipfit.bean.GymCentre;
 import com.flipfit.bean.GymOwner;
 import com.flipfit.bean.Slot;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GymOwnerService.
+ *
+ * @author Shravya
+ * @ClassName "GymOwnerService"
+ */
 public interface GymOwnerService {
+    /**
+     * Registers centre.
+     *
+     * @param centre the centre
+     */
     void registerCentre(GymCentre centre);
 
+    /**
+     * Adds slot.
+     *
+     * @param slot the slot
+     */
     void addSlot(Slot slot);
 
+    /**
+     * Creates schedule.
+     *
+     * @param slotId the slot ID
+     * @param date   the date
+     */
     void createSchedule(String slotId, java.time.LocalDate date);
 
+    /**
+     * Gets centres by owner id.
+     *
+     * @param ownerId the owner ID
+     * @return the centres by owner id
+     */
     List<GymCentre> getCentresByOwnerId(String ownerId);
 
+    /**
+     * Registers gym owner.
+     *
+     * @param owner the gym owner
+     */
     void registerGymOwner(GymOwner owner);
 
+    /**
+     * Validates login.
+     *
+     * @param username the username
+     * @param password the password
+     * @return true, if successful
+     */
     boolean validateLogin(String username, String password);
 }

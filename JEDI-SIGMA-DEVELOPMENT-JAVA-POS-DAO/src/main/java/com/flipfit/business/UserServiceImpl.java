@@ -1,10 +1,23 @@
 package com.flipfit.business;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UserServiceImpl.
+ *
+ * @author Shravya
+ * @ClassName "UserServiceImpl"
+ */
 public class UserServiceImpl implements UserService {
-    public void login(){
+    /**
+     * Login.
+     */
+    public void login() {
         System.out.println("login successful");
     }
 
+    /**
+     * Logout.
+     */
     public void logout() {
         System.out.println("logout successful");
     }

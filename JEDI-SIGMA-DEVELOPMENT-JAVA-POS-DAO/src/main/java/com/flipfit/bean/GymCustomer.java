@@ -1,8 +1,25 @@
 package com.flipfit.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GymCustomer.
+ *
+ * @author Shravya
+ * @ClassName "GymCustomer"
+ */
 public class GymCustomer extends User {
     private Double walletBalance;
 
+    /**
+     * Instantiates a new gym customer.
+     *
+     * @param userId        the user ID
+     * @param username      the username
+     * @param name          the name
+     * @param email         the email
+     * @param passwordHash  the password hash
+     * @param walletBalance the wallet balance
+     */
     public GymCustomer(String userId, String username, String name, String email, String passwordHash,
             Double walletBalance) {
         this.setUserId(userId);
@@ -13,10 +30,20 @@ public class GymCustomer extends User {
         this.walletBalance = walletBalance;
     }
 
+    /**
+     * Gets the wallet balance.
+     *
+     * @return the wallet balance
+     */
     public Double getWalletBalance() {
         return walletBalance;
     }
 
+    /**
+     * Sets the wallet balance.
+     *
+     * @param walletBalance the new wallet balance
+     */
     public void setWalletBalance(Double walletBalance) {
         this.walletBalance = walletBalance;
     }

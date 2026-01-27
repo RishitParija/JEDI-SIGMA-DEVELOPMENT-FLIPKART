@@ -1,15 +1,33 @@
 package com.flipfit.business;
 
 import com.flipfit.bean.Booking;
+import com.flipfit.exception.BookingNotDoneException;
+import com.flipfit.exception.SlotNotAvailableException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BookingServiceImpl.
+ *
+ * @author Shravya
+ * @ClassName "BookingServiceImpl"
+ */
 public class BookingServiceImpl implements BookingService {
 
     public static List<Booking> bookingList = new ArrayList<>();
 
+    /**
+     * Adds booking.
+     *
+     * @param userId     the user ID
+     * @param scheduleId the schedule ID
+     * @return the booking
+     * @throws SlotNotAvailableException if no seats are available
+     * @throws BookingNotDoneException   if booking fails or schedule not found
+     */
     @Override
     public Booking addBooking(String userId, String scheduleId) {
         // Need to find the schedule to get gymId and date
@@ -36,39 +54,63 @@ public class BookingServiceImpl implements BookingService {
 
             // DECREMENT LOGIC HERE
             if (schedule.getAvailableSeats() <= 0) {
-                System.out.println("Booking Failed: No seats available.");
-                return null;
+                throw new SlotNotAvailableException(
+                        "Booking Failed: No seats available for schedule ID: " + scheduleId);
             }
 
             schedule.setAvailableSeats(schedule.getAvailableSeats() - 1);
             System.out.println("Seats updated. Remaining: " + schedule.getAvailableSeats());
         } else {
-            System.out.println("Schedule not found!");
-            return null;
+            throw new BookingNotDoneException("Booking Failed: Schedule not found for ID: " + scheduleId);
         }
 
-        System.out.println("Attempting to book for User: " + userId);
-        Booking booking = new Booking(UUID.randomUUID().toString(), userId, scheduleId, gymId, date, "CONFIRMED");
-        bookingList.add(booking);
-
-        System.out.println("Booking Confirmed for User: " + userId);
-
-        return booking;
+        try {
+            System.out.println("Attempting to book for User: " + userId);
+            Booking booking = new Booking(UUID.randomUUID().toString(), userId, scheduleId, gymId, date, "CONFIRMED");
+            bookingList.add(booking);
+            System.out.println("Booking Confirmed for User: " + userId);
+            return booking;
+        } catch (Exception e) {
+            throw new BookingNotDoneException("Booking failed for User: " + userId);
+        }
     }
 
+    /**
+     * Gets all bookings.
+     *
+     * @return the all bookings
+     */
     public List<Booking> getAllBookings() {
         return bookingList;
     }
 
+    /**
+     * Gets bookings by gym.
+     *
+     * @param gymId the gym ID
+     * @return the bookings by gym
+     */
     public List<Booking> getBookingsByGym(String gymId) {
         return bookingList.stream().filter(b -> b.getGymId() != null && b.getGymId().equals(gymId))
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Gets bookings by user id.
+     *
+     * @param userId the user ID
+     * @return the bookings by user id
+     */
     public List<Booking> getBookingsByUserId(String userId) {
         return bookingList.stream().filter(b -> b.getUserId().equals(userId)).collect(Collectors.toList());
     }
 
+    /**
+     * Cancel booking.
+     *
+     * @param bookingId the booking ID
+     * @return true, if successful
+     */
     public boolean cancelBooking(String bookingId) {
         for (Booking b : bookingList) {
             if (b.getBookingId().equals(bookingId) && !b.getStatus().equals("CANCELLED")) {

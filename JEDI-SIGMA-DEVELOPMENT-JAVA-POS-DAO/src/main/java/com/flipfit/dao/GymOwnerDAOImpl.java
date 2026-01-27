@@ -1,23 +1,33 @@
 package com.flipfit.dao;
 
 import com.flipfit.bean.GymOwner;
-import com.flipfit.helper.DBConnection;
+import com.flipfit.util.DBConnection;
+import com.flipfit.constants.SQLConstants;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GymOwnerDAOImpl.
+ *
+ * @author Shravya
+ * @ClassName "GymOwnerDAOImpl"
+ */
 public class GymOwnerDAOImpl implements GymOwnerDAO {
 
+    /**
+     * Registers gym owner.
+     *
+     * @param owner the gym owner
+     */
     @Override
     public void registerGymOwner(GymOwner owner) {
-        String userSql = "INSERT INTO User (userId, username, name, email, hashedPassword) VALUES (?, ?, ?, ?, ?)";
-        String ownerSql = "INSERT INTO GymOwner (userId, panCard, isVerified) VALUES (?, ?, ?)";
-
         try (Connection conn = DBConnection.getConnection()) {
             conn.setAutoCommit(false);
-            try (PreparedStatement uStmt = conn.prepareStatement(userSql);
-                    PreparedStatement oStmt = conn.prepareStatement(ownerSql)) {
+            try (PreparedStatement uStmt = conn.prepareStatement(SQLConstants.REGISTER_USER_QUERY);
+                    PreparedStatement oStmt = conn.prepareStatement(SQLConstants.REGISTER_GYM_OWNER_QUERY)) {
 
                 uStmt.setString(1, owner.getUserId());
                 uStmt.setString(2, owner.getUsername());
@@ -41,11 +51,17 @@ public class GymOwnerDAOImpl implements GymOwnerDAO {
         }
     }
 
+    /**
+     * Validates login.
+     *
+     * @param username the username
+     * @param password the password
+     * @return true, if successful
+     */
     @Override
     public boolean validateLogin(String username, String password) {
-        String sql = "SELECT * FROM User u JOIN GymOwner o ON u.userId = o.userId WHERE u.username = ? AND u.hashedPassword = ?";
         try (Connection conn = DBConnection.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(SQLConstants.GYM_OWNER_LOGIN_QUERY)) {
             stmt.setString(1, username);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();

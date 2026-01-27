@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28ba065b-593e-4ed2-8864-82cabefc87c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipfit/client/FlipFitApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipfit/client/FlipFitApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipfit/client/GymCustomerFlipFitMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipfit/client/GymCustomerFlipFitMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flipfit/client/GymOwnerFlipFitMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flipfit/client/GymOwnerFlipFitMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +27,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.FlipFitApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -69,7 +67,8 @@
       <workItem from="1769447205461" duration="3000" />
       <workItem from="1769447223947" duration="1333000" />
       <workItem from="1769460512768" duration="18000" />
-      <workItem from="1769460691401" duration="8992000" />
+      <workItem from="1769460691401" duration="9955000" />
+      <workItem from="1769507317844" duration="21000" />
     </task>
     <servers />
   </component>
