@@ -1,0 +1,206 @@
+# FlipFit REST API Documentation
+
+Complete API reference for all available endpoints.
+
+## Base URL
+- **Application API**: `http://localhost:8080`
+- **Admin Console**: `http://localhost:8081`
+
+---
+
+## Health & Status
+
+### Health Check
+- **GET** `/` - Server status check
+- **GET** `http://localhost:8081/healthcheck` - Database health check
+
+---
+
+## User Management
+
+### Authentication & Registration
+- **POST** `/user/login?username={username}&password={password}&role={role}` - User login
+- **POST** `/user/register-customer` - Register new customer (JSON body)
+- **POST** `/user/register-owner` - Register new gym owner (JSON body)
+
+---
+
+## Admin Operations
+
+### Approvals
+- **POST** `/admin/approve-owner/{ownerId}` - Approve gym owner
+- **POST** `/admin/approve-centre/{centreId}` - Approve gym centre
+
+### View Data
+- **GET** `/admin/pending-owners` - Get pending gym owners
+- **GET** `/admin/pending-centres` - Get pending gym centres
+- **GET** `/admin/gyms` - Get all gym centres
+- **GET** `/admin/owners` - Get all gym owners
+- **GET** `/admin/owners/status?verified={true|false}` - Get owners by verification status
+- **GET** `/admin/centres/status?approved={true|false}` - Get centres by approval status
+
+---
+
+## Customer Operations
+
+### Gym Discovery
+- **GET** `/customer/gyms/{city}` - Get gyms by city (public)
+- **GET** `/customer/schedules?userId={userId}&gymId={gymId}&date={YYYY-MM-DD}` - Get schedules (requires userId)
+
+### Booking
+- **POST** `/customer/book-slot?userId={userId}&gymId={gymId}&slotId={slotId}&date={YYYY-MM-DD}` - Book a slot (requires userId)
+
+### Profile & Wallet
+- **GET** `/customer/profile?userId={userId}` - Get customer profile (requires userId)
+- **POST** `/customer/update-wallet?userId={userId}&amount={amount}` - Update wallet balance (requires userId)
+
+---
+
+## Gym Owner Operations
+
+### Centre Management
+- **POST** `/gym-owner/register-centre?ownerId={ownerId}` - Register new gym centre (JSON body, requires ownerId)
+- **GET** `/gym-owner/centres?ownerId={ownerId}` - Get centres by owner (requires ownerId)
+
+### Slot Management
+- **POST** `/gym-owner/add-slot?ownerId={ownerId}` - Add new slot (JSON body, requires ownerId)
+- **GET** `/gym-owner/slots/{centreId}?ownerId={ownerId}` - Get slots by centre (requires ownerId)
+
+### Schedule Management
+- **POST** `/gym-owner/create-schedule?ownerId={ownerId}&slotId={slotId}&date={YYYY-MM-DD}` - Create schedule (requires ownerId)
+
+### Profile
+- **GET** `/gym-owner/profile?ownerId={ownerId}` - Get gym owner profile (requires ownerId)
+
+---
+
+## Booking Management
+
+### Create & View Bookings
+- **POST** `/bookings?userId={userId}&scheduleId={scheduleId}` - Create booking (requires userId)
+- **GET** `/bookings` - Get all bookings (admin only)
+- **GET** `/bookings/user/{userId}` - Get bookings by user (requires userId in path)
+
+### Cancel Booking
+- **DELETE** `/bookings/{bookingId}?userId={userId}` - Cancel booking (requires userId for authorization)
+
+### Schedule & Slot Info
+- **GET** `/bookings/schedule/{scheduleId}` - Get schedule details
+- **GET** `/bookings/slot/{slotId}` - Get slot details
+
+---
+
+## Notifications
+
+- **POST** `/notifications?userId={userId}&message={message}` - Send notification
+- **GET** `/notifications/{userId}` - Get user notifications
+
+---
+
+## Waitlist
+
+- **POST** `/waitlist?userId={userId}&scheduleId={scheduleId}` - Add to waitlist
+- **POST** `/waitlist/promote?scheduleId={scheduleId}` - Promote from waitlist
+
+---
+
+## Gym Centres (DAO Direct Access)
+
+- **POST** `/gym-centres` - Add gym centre (JSON body)
+- **GET** `/gym-centres` - Get all gym centres
+- **GET** `/gym-centres/owner/{ownerId}` - Get centres by owner
+- **GET** `/gym-centres/city/{city}` - Get centres by city
+
+---
+
+## Schedules (DAO Direct Access)
+
+- **POST** `/schedules` - Add schedule (JSON body)
+- **GET** `/schedules/{scheduleId}` - Get schedule by ID
+- **GET** `/schedules/date/{YYYY-MM-DD}` - Get schedules by date
+- **PUT** `/schedules/{scheduleId}/seats?seats={count}` - Update available seats
+
+---
+
+## Slots (DAO Direct Access)
+
+- **POST** `/slots` - Add slot (JSON body)
+- **GET** `/slots/{slotId}` - Get slot by ID
+- **GET** `/slots/centre/{centreId}` - Get slots by centre
+
+---
+
+## Payments (DAO Direct Access)
+
+- **POST** `/payments` - Record payment (JSON body)
+
+---
+
+## Example JSON Payloads
+
+### Register Customer
+```json
+{
+  "username": "john_doe",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "passwordHash": "password123",
+  "walletBalance": 100.0,
+  "phoneNumber": "1234567890"
+}
+```
+
+### Register Gym Owner
+```json
+{
+  "username": "gym_owner1",
+  "name": "Jane Smith",
+  "email": "jane@example.com",
+  "passwordHash": "password123",
+  "panCard": "ABCDE1234F",
+  "phoneNumber": "9876543210",
+  "aadharCard": "123456789012"
+}
+```
+
+### Add Gym Centre
+```json
+{
+  "centreId": "GC001",
+  "name": "FitZone Gym",
+  "city": "Bangalore",
+  "ownerId": "owner123",
+  "approved": false
+}
+```
+
+### Add Slot
+```json
+{
+  "slotId": "SLOT001",
+  "centreId": "GC001",
+  "startTime": "06:00",
+  "endTime": "08:00"
+}
+```
+
+### Add Schedule
+```json
+{
+  "scheduleId": "SCH001",
+  "slotId": "SLOT001",
+  "date": "2026-02-01",
+  "availableSeats": 20
+}
+```
+
+### Record Payment
+```json
+{
+  "paymentId": "PAY001",
+  "userId": "user123",
+  "amount": 500.0,
+  "paymentMethod": "CARD",
+  "status": "SUCCESS"
+}
+```

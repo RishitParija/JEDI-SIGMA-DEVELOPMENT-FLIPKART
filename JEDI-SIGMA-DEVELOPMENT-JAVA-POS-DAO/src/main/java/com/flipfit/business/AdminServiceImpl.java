@@ -13,7 +13,7 @@ import com.flipfit.exception.InvalidApprovalException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/// Classs level Comminting
+/// Class level Commenting
 
 // TODO: Auto-generated Javadoc
 /**
@@ -28,7 +28,7 @@ public class AdminServiceImpl implements AdminService {
     private BookingDAO bookingDAO = new BookingDAOImpl();
     private GymCentreDAO gymCentreDAO = new GymCentreDAOImpl();
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public void approveGymOwner(String ownerId) {
@@ -40,7 +40,7 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public void approveGymCentre(String centreId) {
@@ -52,7 +52,7 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public void viewAllGyms() {
@@ -69,7 +69,7 @@ public class AdminServiceImpl implements AdminService {
         System.out.println();
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public void viewPendingGymOwners() {
@@ -86,14 +86,14 @@ public class AdminServiceImpl implements AdminService {
         System.out.println();
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public List<GymOwner> getPendingGymOwners() {
         return adminDAO.getPendingGymOwners();
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public void viewPendingGymCentres() {
@@ -110,14 +110,14 @@ public class AdminServiceImpl implements AdminService {
         System.out.println();
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public List<GymCentre> getPendingGymCentres() {
         return adminDAO.getPendingGymCentres();
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public void viewAllBookings() {
@@ -134,13 +134,13 @@ public class AdminServiceImpl implements AdminService {
         System.out.println();
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     public boolean validateLogin(String username, String password) {
         return adminDAO.validateLogin(username, password);
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public void viewGymOwnersByStatus(boolean verified) {
@@ -159,7 +159,7 @@ public class AdminServiceImpl implements AdminService {
         System.out.println();
     }
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     @Override
     public void viewGymCentresByStatus(boolean approved) {

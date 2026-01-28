@@ -1,6 +1,6 @@
 package com.flipfit.business;
 
-/// Classs level Comminting
+/// Class level Commenting
 
 // TODO: Auto-generated Javadoc
 /**
@@ -11,7 +11,7 @@ package com.flipfit.business;
  */
 public interface AdminService {
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * Approves gym owner.
@@ -20,7 +20,7 @@ public interface AdminService {
      */
     void approveGymOwner(String ownerId);
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * Approves gym centre.
@@ -29,21 +29,21 @@ public interface AdminService {
      */
     void approveGymCentre(String centreId);
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * View all gyms.
      */
     void viewAllGyms();
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * View pending gym owners.
      */
     void viewPendingGymOwners();
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * Gets pending gym owners.
@@ -52,14 +52,14 @@ public interface AdminService {
      */
     java.util.List<com.flipfit.bean.GymOwner> getPendingGymOwners();
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * View pending gym centres.
      */
     void viewPendingGymCentres();
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * Gets pending gym centres.
@@ -68,14 +68,14 @@ public interface AdminService {
      */
     java.util.List<com.flipfit.bean.GymCentre> getPendingGymCentres();
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * View all bookings.
      */
     void viewAllBookings();
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * View gym owners by status using lambda.
@@ -84,7 +84,7 @@ public interface AdminService {
      */
     void viewGymOwnersByStatus(boolean verified);
 
-    // MEthod level Commenting
+    // Method level Commenting
 
     /**
      * View gym centres by status using lambda.

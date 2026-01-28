@@ -1,0 +1,22 @@
+-classpath
+'/Users/rishit.parija/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar:/Users/rishit.parija/.m2/repository/com/google/protobuf/protobuf-java/3.21.9/protobuf-java-3.21.9.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/rishit.parija/Documents/git-project/JEDI-SIGMA-DEVELOPMENT-JAVA-POS-DAO/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/rishit.parija/Documents/git-project/JEDI-SIGMA-DEVELOPMENT-JAVA-POS-DAO/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Archetype - JEDI-DEMO 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'Archetype - JEDI-DEMO 1.0-SNAPSHOT API'
