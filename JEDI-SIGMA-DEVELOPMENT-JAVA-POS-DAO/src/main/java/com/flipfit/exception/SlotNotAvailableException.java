@@ -4,7 +4,7 @@ package com.flipfit.exception;
 /**
  * The Class SlotNotAvailableException.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "SlotNotAvailableException"
  */
 public class SlotNotAvailableException extends RuntimeException {

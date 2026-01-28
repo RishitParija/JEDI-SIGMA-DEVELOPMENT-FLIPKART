@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 /**
  * The Class Notification.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "Notification"
  */
 public class Notification {

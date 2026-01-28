@@ -4,7 +4,7 @@ package com.flipfit.bean;
 /**
  * The Class User.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "User"
  */
 public abstract class User {

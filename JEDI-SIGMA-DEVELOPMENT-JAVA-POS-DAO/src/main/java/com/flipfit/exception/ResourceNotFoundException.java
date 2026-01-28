@@ -4,7 +4,7 @@ package com.flipfit.exception;
 /**
  * The Class ResourceNotFoundException.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "ResourceNotFoundException"
  */
 public class ResourceNotFoundException extends RuntimeException {

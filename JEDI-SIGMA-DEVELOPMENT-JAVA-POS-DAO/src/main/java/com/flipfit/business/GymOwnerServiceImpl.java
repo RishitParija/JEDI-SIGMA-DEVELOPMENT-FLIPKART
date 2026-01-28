@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * The Class GymOwnerServiceImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "GymOwnerServiceImpl"
  */
 public class GymOwnerServiceImpl implements GymOwnerService {

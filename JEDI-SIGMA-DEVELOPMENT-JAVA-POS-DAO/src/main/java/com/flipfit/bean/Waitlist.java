@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 /**
  * The Class Waitlist.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "Waitlist"
  */
 public class Waitlist {

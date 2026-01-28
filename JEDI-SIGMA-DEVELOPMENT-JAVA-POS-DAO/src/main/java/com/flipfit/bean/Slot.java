@@ -6,7 +6,7 @@ import java.time.LocalTime;
 /**
  * The Class Slot.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "Slot"
  */
 public class Slot {

@@ -4,7 +4,7 @@ package com.flipfit.business;
 /**
  * The Interface WaitlistService.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "WaitlistService"
  */
 public interface WaitlistService {

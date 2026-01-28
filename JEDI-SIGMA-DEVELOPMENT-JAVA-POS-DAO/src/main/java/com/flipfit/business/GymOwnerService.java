@@ -9,7 +9,7 @@ import com.flipfit.bean.Slot;
 /**
  * The Class GymOwnerService.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "GymOwnerService"
  */
 public interface GymOwnerService {

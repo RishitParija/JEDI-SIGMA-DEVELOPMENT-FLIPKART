@@ -4,7 +4,7 @@ package com.flipfit.exception;
 /**
  * The Class BookingNotDoneException.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "BookingNotDoneException"
  */
 public class BookingNotDoneException extends RuntimeException {

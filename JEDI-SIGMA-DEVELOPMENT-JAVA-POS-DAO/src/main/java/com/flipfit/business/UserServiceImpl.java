@@ -4,7 +4,7 @@ package com.flipfit.business;
 /**
  * The Class UserServiceImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "UserServiceImpl"
  */
 public class UserServiceImpl implements UserService {

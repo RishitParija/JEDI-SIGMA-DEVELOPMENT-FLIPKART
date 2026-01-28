@@ -8,7 +8,7 @@ import com.flipfit.constants.Constants;
 /**
  * The Class DBConnection.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "DBConnection"
  */
 public class DBConnection {

@@ -4,7 +4,7 @@ package com.flipfit.bean;
 /**
  * The Class GymOwner.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "GymOwner"
  */
 public class GymOwner extends User {

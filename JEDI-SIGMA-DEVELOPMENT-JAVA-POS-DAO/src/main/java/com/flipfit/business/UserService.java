@@ -4,7 +4,7 @@ package com.flipfit.business;
 /**
  * The Interface UserService.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "UserService"
  */
 public interface UserService {

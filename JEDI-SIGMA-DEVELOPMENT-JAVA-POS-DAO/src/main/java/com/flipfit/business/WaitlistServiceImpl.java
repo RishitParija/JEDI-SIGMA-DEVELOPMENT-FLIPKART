@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * The Class WaitlistServiceImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "WaitlistServiceImpl"
  */
 public class WaitlistServiceImpl implements WaitlistService {

@@ -4,7 +4,7 @@ package com.flipfit.exception;
 /**
  * The Class InvalidApprovalException.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "InvalidApprovalException"
  */
 public class InvalidApprovalException extends RuntimeException {

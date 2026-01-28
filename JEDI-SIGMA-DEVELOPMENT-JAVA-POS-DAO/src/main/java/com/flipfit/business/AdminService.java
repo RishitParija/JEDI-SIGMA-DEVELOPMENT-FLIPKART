@@ -4,7 +4,7 @@ package com.flipfit.business;
 /**
  * The Class AdminService.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "AdminService"
  */
 public interface AdminService {

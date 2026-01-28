@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * The Class AdminServiceImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "AdminServiceImpl"
  */
 public class AdminServiceImpl implements AdminService {

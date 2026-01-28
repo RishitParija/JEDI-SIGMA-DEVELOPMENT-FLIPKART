@@ -15,7 +15,7 @@ import com.flipfit.exception.UserNotFoundException;
 /**
  * The Class GymCustomerServiceImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "GymCustomerServiceImpl"
  */
 public class GymCustomerServiceImpl implements GymCustomerService {

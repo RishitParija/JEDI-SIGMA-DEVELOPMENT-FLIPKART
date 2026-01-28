@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * The Interface AdminDAO.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "AdminDAO"
  */
 public interface AdminDAO {

@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * The Class BookingServiceImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "BookingServiceImpl"
  */
 public class BookingServiceImpl implements BookingService {

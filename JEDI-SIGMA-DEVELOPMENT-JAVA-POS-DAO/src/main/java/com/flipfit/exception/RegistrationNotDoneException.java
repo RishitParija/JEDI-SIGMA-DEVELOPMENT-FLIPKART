@@ -4,7 +4,7 @@ package com.flipfit.exception;
 /**
  * The Class RegistrationNotDoneException.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "RegistrationNotDoneException"
  */
 public class RegistrationNotDoneException extends RuntimeException {

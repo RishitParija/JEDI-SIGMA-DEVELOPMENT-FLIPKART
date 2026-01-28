@@ -4,7 +4,7 @@ package com.flipfit.bean;
 /**
  * The Class GymCentre.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "GymCentre"
  */
 public class GymCentre {

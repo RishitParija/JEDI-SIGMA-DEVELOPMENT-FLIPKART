@@ -4,7 +4,7 @@ package com.flipfit.exception;
 /**
  * The Class UserNotFoundException.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "UserNotFoundException"
  */
 public class UserNotFoundException extends RuntimeException {

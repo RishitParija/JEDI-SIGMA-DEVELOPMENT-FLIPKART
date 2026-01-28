@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * The Class NotificationServiceImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "NotificationServiceImpl"
  */
 public class NotificationServiceImpl implements NotificationService {

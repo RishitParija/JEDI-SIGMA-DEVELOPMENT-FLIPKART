@@ -12,7 +12,7 @@ import java.sql.SQLException;
 /**
  * The Class GymOwnerDAOImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "GymOwnerDAOImpl"
  */
 public class GymOwnerDAOImpl implements GymOwnerDAO {

@@ -6,7 +6,7 @@ import com.flipfit.bean.GymCustomer;
 /**
  * The Interface CustomerDAO.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "CustomerDAO"
  */
 public interface CustomerDAO {

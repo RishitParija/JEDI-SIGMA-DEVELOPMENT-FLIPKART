@@ -9,7 +9,7 @@ import com.flipfit.bean.GymCustomer;
 /**
  * The Class GymCustomerService.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "GymCustomerService"
  */
 public interface GymCustomerService {

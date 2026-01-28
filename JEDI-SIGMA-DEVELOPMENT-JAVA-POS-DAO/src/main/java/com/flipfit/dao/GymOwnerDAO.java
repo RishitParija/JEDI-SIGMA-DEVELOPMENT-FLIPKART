@@ -6,7 +6,7 @@ import com.flipfit.bean.GymOwner;
 /**
  * The Interface GymOwnerDAO.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "GymOwnerDAO"
  */
 public interface GymOwnerDAO {

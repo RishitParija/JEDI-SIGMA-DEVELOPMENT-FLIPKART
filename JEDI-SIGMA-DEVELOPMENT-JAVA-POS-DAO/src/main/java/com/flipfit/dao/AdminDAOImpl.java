@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * The Class AdminDAOImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "AdminDAOImpl"
  */
 public class AdminDAOImpl implements AdminDAO {

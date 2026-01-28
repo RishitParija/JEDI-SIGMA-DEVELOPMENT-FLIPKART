@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * The Class BookingService.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "BookingService"
  */
 public interface BookingService {

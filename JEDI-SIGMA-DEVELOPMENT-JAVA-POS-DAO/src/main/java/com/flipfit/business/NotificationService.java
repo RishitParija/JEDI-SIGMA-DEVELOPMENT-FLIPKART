@@ -4,7 +4,7 @@ package com.flipfit.business;
 /**
  * The Interface NotificationService.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "NotificationService"
  */
 public interface NotificationService {

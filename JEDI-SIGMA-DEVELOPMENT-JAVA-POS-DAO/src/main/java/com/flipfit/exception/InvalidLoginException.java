@@ -4,7 +4,7 @@ package com.flipfit.exception;
 /**
  * The Class InvalidLoginException.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "InvalidLoginException"
  */
 public class InvalidLoginException extends RuntimeException {

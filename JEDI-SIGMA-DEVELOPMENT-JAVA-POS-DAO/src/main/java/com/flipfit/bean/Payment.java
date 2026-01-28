@@ -4,7 +4,7 @@ package com.flipfit.bean;
 /**
  * The Class Payment.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "Payment"
  */
 public class Payment {

@@ -6,7 +6,7 @@ import java.time.LocalDate;
 /**
  * The Class Schedule.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "Schedule"
  */
 public class Schedule {

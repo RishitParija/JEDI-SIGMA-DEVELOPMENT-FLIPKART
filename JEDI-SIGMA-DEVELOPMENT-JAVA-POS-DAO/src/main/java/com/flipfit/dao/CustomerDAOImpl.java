@@ -12,7 +12,7 @@ import java.sql.SQLException;
 /**
  * The Class CustomerDAOImpl.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "CustomerDAOImpl"
  */
 public class CustomerDAOImpl implements CustomerDAO {

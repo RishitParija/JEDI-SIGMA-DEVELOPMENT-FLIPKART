@@ -6,7 +6,7 @@ import java.time.LocalDate;
 /**
  * The Class Booking.
  *
- * @author Shravya
+ * @author Rishit
  * @ClassName "Booking"
  */
 public class Booking {
