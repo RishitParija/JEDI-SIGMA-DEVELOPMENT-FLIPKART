@@ -51,4 +51,20 @@ public interface BookingService {
      * @return the bookings by gym
      */
     List<Booking> getBookingsByGym(String gymId);
+
+    /**
+     * Gets schedule by id.
+     *
+     * @param scheduleId the schedule ID
+     * @return the schedule
+     */
+    com.flipfit.bean.Schedule getScheduleById(String scheduleId);
+
+    /**
+     * Gets slot by id.
+     *
+     * @param slotId the slot ID
+     * @return the slot
+     */
+    com.flipfit.bean.Slot getSlotById(String slotId);
 }

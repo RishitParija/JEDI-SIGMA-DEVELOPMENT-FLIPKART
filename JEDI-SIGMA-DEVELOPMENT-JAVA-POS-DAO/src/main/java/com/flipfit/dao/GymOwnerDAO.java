@@ -26,4 +26,12 @@ public interface GymOwnerDAO {
      * @return true, if successful
      */
     boolean validateLogin(String username, String password);
+
+    /**
+     * Gets gym owner by username.
+     *
+     * @param username the username
+     * @return the gym owner by username
+     */
+    GymOwner getGymOwnerByUsername(String username);
 }

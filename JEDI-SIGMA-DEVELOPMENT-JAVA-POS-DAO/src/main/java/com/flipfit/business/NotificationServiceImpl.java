@@ -1,11 +1,10 @@
 package com.flipfit.business;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.flipfit.dao.NotificationDAO;
+import com.flipfit.dao.NotificationDAOImpl;
 import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class NotificationServiceImpl.
  *
@@ -14,8 +13,7 @@ import java.util.Map;
  */
 public class NotificationServiceImpl implements NotificationService {
 
-    // Static map to persist notifications across service instances (Mock DB)
-    private static Map<String, List<String>> userNotifications = new HashMap<>();
+    private NotificationDAO notificationDAO = new NotificationDAOImpl();
 
     /**
      * Send notification.
@@ -25,8 +23,7 @@ public class NotificationServiceImpl implements NotificationService {
      */
     @Override
     public void sendNotification(String userId, String message) {
-        userNotifications.computeIfAbsent(userId, k -> new ArrayList<>()).add(message);
-        System.out.println("Notification sent to " + userId + ": " + message);
+        notificationDAO.addNotification(UUID.randomUUID().toString(), userId, message, "USER", "SENT");
     }
 
     /**
@@ -37,6 +34,6 @@ public class NotificationServiceImpl implements NotificationService {
      */
     @Override
     public List<String> getNotifications(String userId) {
-        return userNotifications.getOrDefault(userId, new ArrayList<>());
+        return notificationDAO.getNotificationsByUserId(userId);
     }
 }

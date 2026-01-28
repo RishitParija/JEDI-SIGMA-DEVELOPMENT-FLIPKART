@@ -10,6 +10,7 @@ package com.flipfit.bean;
 public class GymOwner extends User {
     private String panCard;
     private Boolean isVerified;
+    private String aadharCard;
 
     /**
      * Instantiates a new gym owner.
@@ -20,8 +21,11 @@ public class GymOwner extends User {
      * @param email        the email
      * @param passwordHash the password hash
      * @param panCard      the pan card
+     * @param phoneNumber  the phone number
+     * @param aadharCard   the aadhar card
      */
-    public GymOwner(String userId, String username, String name, String email, String passwordHash, String panCard) {
+    public GymOwner(String userId, String username, String name, String email, String passwordHash, String panCard,
+            String phoneNumber, String aadharCard) {
         this.setUserId(userId);
         this.setUsername(username);
         this.setName(name);
@@ -29,6 +33,8 @@ public class GymOwner extends User {
         this.setHashedPassword(passwordHash);
         this.panCard = panCard;
         this.isVerified = false;
+        this.setPhoneNumber(phoneNumber);
+        this.aadharCard = aadharCard;
     }
 
     /**
@@ -56,5 +62,23 @@ public class GymOwner extends User {
      */
     public void setIsVerified(Boolean isVerified) {
         this.isVerified = isVerified;
+    }
+
+    /**
+     * Gets the aadhar card.
+     *
+     * @return the aadhar card
+     */
+    public String getAadharCard() {
+        return aadharCard;
+    }
+
+    /**
+     * Sets the aadhar card.
+     *
+     * @param aadharCard the new aadhar card
+     */
+    public void setAadharCard(String aadharCard) {
+        this.aadharCard = aadharCard;
     }
 }

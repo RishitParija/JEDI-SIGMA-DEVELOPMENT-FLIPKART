@@ -5,9 +5,8 @@ import com.flipfit.bean.GymCentre;
 import com.flipfit.bean.GymOwner;
 import com.flipfit.bean.Slot;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class GymOwnerService.
+ * The Interface GymOwnerService.
  *
  * @author Rishit
  * @ClassName "GymOwnerService"
@@ -58,4 +57,20 @@ public interface GymOwnerService {
      * @return true, if successful
      */
     boolean validateLogin(String username, String password);
+
+    /**
+     * Gets gym owner by username.
+     *
+     * @param username the username
+     * @return the gym owner by username
+     */
+    GymOwner getGymOwnerByUsername(String username);
+
+    /**
+     * Gets slots by centre id.
+     *
+     * @param centreId the centre ID
+     * @return the slots by centre id
+     */
+    List<Slot> getSlotsByCentreId(String centreId);
 }

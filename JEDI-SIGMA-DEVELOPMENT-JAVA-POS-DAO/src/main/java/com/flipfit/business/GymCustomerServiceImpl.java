@@ -1,17 +1,20 @@
 package com.flipfit.business;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-
 import com.flipfit.bean.GymCentre;
 import com.flipfit.bean.GymCustomer;
 import com.flipfit.dao.CustomerDAO;
 import com.flipfit.dao.CustomerDAOImpl;
+import com.flipfit.dao.GymCentreDAO;
+import com.flipfit.dao.GymCentreDAOImpl;
+import com.flipfit.dao.ScheduleDAO;
+import com.flipfit.dao.ScheduleDAOImpl;
+import com.flipfit.exception.InvalidDataException;
 import com.flipfit.exception.RegistrationNotDoneException;
 import com.flipfit.exception.UserNotFoundException;
+import com.flipfit.validation.Validator;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GymCustomerServiceImpl.
  *
@@ -21,6 +24,8 @@ import com.flipfit.exception.UserNotFoundException;
 public class GymCustomerServiceImpl implements GymCustomerService {
 
     private CustomerDAO customerDAO = new CustomerDAOImpl();
+    private GymCentreDAO gymCentreDAO = new GymCentreDAOImpl();
+    private ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
 
     /**
      * Gets gyms by city.
@@ -30,13 +35,7 @@ public class GymCustomerServiceImpl implements GymCustomerService {
      */
     @Override
     public List<GymCentre> getGymsByCity(String city) {
-        List<GymCentre> result = new ArrayList<>();
-        for (GymCentre centre : GymOwnerServiceImpl.gymCentreList) {
-            if (centre.getCity().equalsIgnoreCase(city) && centre.isApproved()) {
-                result.add(centre);
-            }
-        }
-        return result;
+        return gymCentreDAO.getGymsByCity(city);
     }
 
     /**
@@ -57,15 +56,23 @@ public class GymCustomerServiceImpl implements GymCustomerService {
      * Registers customer.
      *
      * @param customer the customer
+     * @throws InvalidDataException         if validation fails
      * @throws RegistrationNotDoneException if registration fails
      */
     @Override
     public void registerCustomer(GymCustomer customer) {
+        if (!Validator.isEmailValid(customer.getEmail())) {
+            throw new InvalidDataException("Invalid Email format.");
+        }
+        if (!Validator.isPhoneValid(customer.getPhoneNumber())) {
+            throw new InvalidDataException("Phone number must 10 digits.");
+        }
+
         try {
             customerDAO.registerCustomer(customer);
-            System.out.println("Customer registered successfully for: " + customer.getName());
+            System.out.println("Customer registered successfully: " + customer.getUsername());
         } catch (Exception e) {
-            throw new RegistrationNotDoneException("Registration failed for customer: " + customer.getName());
+            throw new RegistrationNotDoneException("Registration failed for customer: " + customer.getUsername());
         }
     }
 
@@ -107,5 +114,10 @@ public class GymCustomerServiceImpl implements GymCustomerService {
     public void updateWallet(String userId, double amount) {
         customerDAO.updateWalletBalance(userId, amount);
         System.out.println("Wallet updated for User ID: " + userId);
+    }
+
+    @Override
+    public List<com.flipfit.bean.Schedule> getSchedulesByGymAndDate(String gymId, LocalDate date) {
+        return scheduleDAO.getSchedulesByDate(date);
     }
 }

@@ -13,6 +13,7 @@ public abstract class User {
     private String name;
     private String email;
     private String hashedPassword;
+    private String phoneNumber;
 
     /**
      * Gets the user id.
@@ -102,5 +103,23 @@ public abstract class User {
      */
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
+    }
+
+    /**
+     * Gets the phone number.
+     *
+     * @return the phone number
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * Sets the phone number.
+     *
+     * @param phoneNumber the new phone number
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

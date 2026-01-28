@@ -91,9 +91,16 @@ public class AdminDAOImpl implements AdminDAO {
                         rs.getString("name"),
                         rs.getString("email"),
                         rs.getString("hashedPassword"),
-                        rs.getString("panCard"));
+                        rs.getString("panCard"),
+                        rs.getString("phoneNumber"),
+                        rs.getString("aadharCard"));
                 owner.setIsVerified(false);
                 pendingOwners.add(owner);
+            }
+            if (pendingOwners.isEmpty()) {
+                System.out.println("[DEBUG] No pending owners found in database.");
+            } else {
+                System.out.println("[DEBUG] Found " + pendingOwners.size() + " pending owners.");
             }
         } catch (SQLException e) {
             e.printStackTrace();

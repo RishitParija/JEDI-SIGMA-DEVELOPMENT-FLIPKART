@@ -34,6 +34,7 @@ public class CustomerDAOImpl implements CustomerDAO {
                 uStmt.setString(3, customer.getName());
                 uStmt.setString(4, customer.getEmail());
                 uStmt.setString(5, customer.getPasswordHash());
+                uStmt.setString(6, customer.getPhoneNumber());
                 uStmt.executeUpdate();
 
                 cStmt.setString(1, customer.getUserId());
@@ -90,7 +91,8 @@ public class CustomerDAOImpl implements CustomerDAO {
                         rs.getString("name"),
                         rs.getString("email"),
                         rs.getString("hashedPassword"),
-                        rs.getDouble("walletBalance"));
+                        rs.getDouble("walletBalance"),
+                        rs.getString("phoneNumber"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -2,12 +2,16 @@ package com.flipfit.business;
 
 import com.flipfit.bean.GymCentre;
 import com.flipfit.bean.GymOwner;
+import com.flipfit.bean.Booking;
 import com.flipfit.dao.AdminDAO;
 import com.flipfit.dao.AdminDAOImpl;
+import com.flipfit.dao.BookingDAO;
+import com.flipfit.dao.BookingDAOImpl;
+import com.flipfit.dao.GymCentreDAO;
+import com.flipfit.dao.GymCentreDAOImpl;
 import com.flipfit.exception.InvalidApprovalException;
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class AdminServiceImpl.
  *
@@ -17,13 +21,9 @@ import java.util.List;
 public class AdminServiceImpl implements AdminService {
 
     private AdminDAO adminDAO = new AdminDAOImpl();
+    private BookingDAO bookingDAO = new BookingDAOImpl();
+    private GymCentreDAO gymCentreDAO = new GymCentreDAOImpl();
 
-    /**
-     * Approves gym owner.
-     *
-     * @param ownerId the owner ID
-     * @throws InvalidApprovalException if approval fails
-     */
     @Override
     public void approveGymOwner(String ownerId) {
         try {
@@ -34,12 +34,6 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
-    /**
-     * Approves gym centre.
-     *
-     * @param centreId the centre ID
-     * @throws InvalidApprovalException if approval fails
-     */
     @Override
     public void approveGymCentre(String centreId) {
         try {
@@ -50,79 +44,72 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
-    /**
-     * View all gyms.
-     */
     @Override
     public void viewAllGyms() {
-        // This might need a GymCentreDAO, but for now, we can use
-        // GymOwnerServiceImpl.gymCentreList if still needed
-        // However, a better approach is to implement GymCentreDAO.
         System.out.println("--- All Gym Centres ---");
-        // For now, let's assume we need to implement more DAOs to fully replace mock
-        // data
-    }
-
-    /**
-     * View pending gym owners.
-     */
-    @Override
-    public void viewPendingGymOwners() {
-        System.out.println("--- Pending Gym Owners ---");
-        for (GymOwner owner : adminDAO.getPendingGymOwners()) {
-            System.out.println(
-                    "ID: " + owner.getUserId() + ", Name: " + owner.getName() + ", Email: " + owner.getEmail());
+        List<GymCentre> gyms = gymCentreDAO.getAllGymCentres();
+        if (gyms.isEmpty()) {
+            System.out.println("No gym centres found.");
+        } else {
+            for (GymCentre gym : gyms) {
+                System.out.println("ID: " + gym.getCentreId() + ", Name: " + gym.getName() + ", City: " + gym.getCity()
+                        + ", Approved: " + gym.isApproved());
+            }
         }
     }
 
-    /**
-     * Gets pending gym owners.
-     *
-     * @return the pending gym owners
-     */
+    @Override
+    public void viewPendingGymOwners() {
+        System.out.println("--- Pending Gym Owners ---");
+        List<GymOwner> owners = adminDAO.getPendingGymOwners();
+        if (owners.isEmpty()) {
+            System.out.println("No pending gym owners.");
+        } else {
+            for (GymOwner owner : owners) {
+                System.out.println(
+                        "ID: " + owner.getUserId() + ", Name: " + owner.getName() + ", Email: " + owner.getEmail());
+            }
+        }
+    }
+
     @Override
     public List<GymOwner> getPendingGymOwners() {
         return adminDAO.getPendingGymOwners();
     }
 
-    /**
-     * View pending gym centres.
-     */
     @Override
     public void viewPendingGymCentres() {
         System.out.println("--- Pending Gym Centres ---");
-        for (GymCentre centre : adminDAO.getPendingGymCentres()) {
-            System.out.println(
-                    "ID: " + centre.getCentreId() + ", Name: " + centre.getName() + ", City: " + centre.getCity());
+        List<GymCentre> centres = adminDAO.getPendingGymCentres();
+        if (centres.isEmpty()) {
+            System.out.println("No pending gym centres.");
+        } else {
+            for (GymCentre centre : centres) {
+                System.out.println(
+                        "ID: " + centre.getCentreId() + ", Name: " + centre.getName() + ", City: " + centre.getCity());
+            }
         }
     }
 
-    /**
-     * Gets pending gym centres.
-     *
-     * @return the pending gym centres
-     */
     @Override
     public List<GymCentre> getPendingGymCentres() {
         return adminDAO.getPendingGymCentres();
     }
 
-    /**
-     * View all bookings.
-     */
     @Override
     public void viewAllBookings() {
         System.out.println("--- All Bookings ---");
-        // Needs BookingDAO
+        List<Booking> bookings = bookingDAO.getAllBookings();
+        if (bookings.isEmpty()) {
+            System.out.println("No bookings found.");
+        } else {
+            for (Booking booking : bookings) {
+                System.out.println("ID: " + booking.getBookingId() + ", User: " + booking.getUserId() + ", Schedule: "
+                        + booking.getScheduleId() + ", Status: " + booking.getStatus());
+            }
+        }
     }
 
-    /**
-     * Validates login.
-     *
-     * @param username the username
-     * @param password the password
-     * @return true, if successful
-     */
     public boolean validateLogin(String username, String password) {
         return adminDAO.validateLogin(username, password);
     }

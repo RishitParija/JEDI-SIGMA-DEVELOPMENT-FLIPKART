@@ -2,7 +2,7 @@ package com.flipfit.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import com.flipfit.constants.Constants;
+import com.flipfit.constants.SQLConnectorConstants;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -12,7 +12,6 @@ import com.flipfit.constants.Constants;
  * @ClassName "DBConnection"
  */
 public class DBConnection {
-    private static Connection connection = null;
 
     /**
      * Gets the connection.
@@ -20,12 +19,10 @@ public class DBConnection {
      * @return the connection
      */
     public static Connection getConnection() {
-        if (connection != null)
-            return connection;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(Constants.JDBC_URL, Constants.JDBC_USER, Constants.JDBC_PASSWORD);
-            return connection;
+            return DriverManager.getConnection(SQLConnectorConstants.JDBC_URL, SQLConnectorConstants.JDBC_USER,
+                    SQLConnectorConstants.JDBC_PASSWORD);
         } catch (Exception e) {
             System.err.println("DB Connection Error: " + e.getMessage());
             return null;

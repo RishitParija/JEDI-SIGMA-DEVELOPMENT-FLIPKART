@@ -34,11 +34,13 @@ public class GymOwnerDAOImpl implements GymOwnerDAO {
                 uStmt.setString(3, owner.getName());
                 uStmt.setString(4, owner.getEmail());
                 uStmt.setString(5, owner.getPasswordHash());
+                uStmt.setString(6, owner.getPhoneNumber());
                 uStmt.executeUpdate();
 
                 oStmt.setString(1, owner.getUserId());
                 oStmt.setString(2, owner.getPanCard());
                 oStmt.setBoolean(3, owner.getIsVerified());
+                oStmt.setString(4, owner.getAadharCard());
                 oStmt.executeUpdate();
 
                 conn.commit();
@@ -51,13 +53,6 @@ public class GymOwnerDAOImpl implements GymOwnerDAO {
         }
     }
 
-    /**
-     * Validates login.
-     *
-     * @param username the username
-     * @param password the password
-     * @return true, if successful
-     */
     @Override
     public boolean validateLogin(String username, String password) {
         try (Connection conn = DBConnection.getConnection();
@@ -70,5 +65,36 @@ public class GymOwnerDAOImpl implements GymOwnerDAO {
             e.printStackTrace();
         }
         return false;
+    }
+
+    /**
+     * Gets gym owner by username.
+     *
+     * @param username the username
+     * @return the gym owner by username
+     */
+    @Override
+    public GymOwner getGymOwnerByUsername(String username) {
+        try (Connection conn = DBConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(SQLConstants.GET_GYM_OWNER_BY_USERNAME_QUERY)) {
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                GymOwner owner = new GymOwner(
+                        rs.getString("userId"),
+                        rs.getString("username"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("hashedPassword"),
+                        rs.getString("panCard"),
+                        rs.getString("phoneNumber"),
+                        rs.getString("aadharCard"));
+                owner.setIsVerified(rs.getBoolean("isVerified"));
+                return owner;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

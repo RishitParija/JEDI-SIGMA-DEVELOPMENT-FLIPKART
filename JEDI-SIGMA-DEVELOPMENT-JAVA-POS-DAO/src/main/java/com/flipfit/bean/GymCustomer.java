@@ -19,15 +19,17 @@ public class GymCustomer extends User {
      * @param email         the email
      * @param passwordHash  the password hash
      * @param walletBalance the wallet balance
+     * @param phoneNumber   the phone number
      */
     public GymCustomer(String userId, String username, String name, String email, String passwordHash,
-            Double walletBalance) {
+            Double walletBalance, String phoneNumber) {
         this.setUserId(userId);
         this.setUsername(username);
         this.setName(name);
         this.setEmail(email);
         this.setHashedPassword(passwordHash);
         this.walletBalance = walletBalance;
+        this.setPhoneNumber(phoneNumber);
     }
 
     /**

@@ -63,4 +63,13 @@ public interface GymCustomerService {
      * @param amount the amount
      */
     void updateWallet(String userId, double amount);
+
+    /**
+     * Gets schedules by gym and date.
+     *
+     * @param gymId the gym ID
+     * @param date  the date
+     * @return the schedules by gym and date
+     */
+    List<com.flipfit.bean.Schedule> getSchedulesByGymAndDate(String gymId, LocalDate date);
 }

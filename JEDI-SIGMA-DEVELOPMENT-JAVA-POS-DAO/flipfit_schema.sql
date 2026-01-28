@@ -8,7 +8,8 @@ CREATE TABLE User (
     username VARCHAR(255) UNIQUE NOT NULL,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
-    hashedPassword VARCHAR(255) NOT NULL
+    hashedPassword VARCHAR(255) NOT NULL,
+    phoneNumber VARCHAR(255)
 );
 
 -- Specialized User Tables (Joined Table Inheritance)
@@ -22,6 +23,7 @@ CREATE TABLE GymOwner (
     userId VARCHAR(255) PRIMARY KEY,
     panCard VARCHAR(255) NOT NULL,
     isVerified BOOLEAN DEFAULT FALSE,
+    aadharCard VARCHAR(255),
     FOREIGN KEY (userId) REFERENCES User(userId) ON DELETE CASCADE
 );
 
@@ -102,3 +104,10 @@ CREATE TABLE Waitlist (
     FOREIGN KEY (userId) REFERENCES GymCustomer(userId) ON DELETE CASCADE,
     FOREIGN KEY (scheduleId) REFERENCES Schedule(scheduleId) ON DELETE CASCADE
 );
+
+-- Default Admin Seeding
+INSERT INTO User (userId, username, name, email, hashedPassword, phoneNumber) 
+VALUES ('admin101', 'Rishit', 'Rishit', 'rishit@flipfit.com', 'Rishit123', '9999999999');
+
+INSERT INTO GymAdmin (userId, employeeId) 
+VALUES ('admin101', 'EMP101');
