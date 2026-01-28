@@ -7,6 +7,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class PaymentDAOImpl.
  *
@@ -14,6 +17,8 @@ import java.sql.SQLException;
  * @ClassName "PaymentDAOImpl"
  */
 public class PaymentDAOImpl implements PaymentDAO {
+
+    // MEthod level Commenting
 
     /**
      * Adds the payment.

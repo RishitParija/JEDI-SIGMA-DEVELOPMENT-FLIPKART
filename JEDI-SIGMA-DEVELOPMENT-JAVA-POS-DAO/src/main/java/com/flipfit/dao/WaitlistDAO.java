@@ -3,6 +3,9 @@ package com.flipfit.dao;
 import com.flipfit.bean.Waitlist;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Interface WaitlistDAO.
  *
@@ -10,6 +13,9 @@ import java.util.List;
  * @ClassName "WaitlistDAO"
  */
 public interface WaitlistDAO {
+
+    // MEthod level Commenting
+
     /**
      * Adds the to waitlist.
      *
@@ -17,18 +23,22 @@ public interface WaitlistDAO {
      */
     void addWaitlistEntry(Waitlist waitlist);
 
+    // MEthod level Commenting
+
     /**
      * Gets waitlist by schedule.
      *
-     * @param scheduleId the schedule ID
+     * @param scheduleId the schedule id
      * @return the waitlist entries
      */
     List<Waitlist> getWaitlistByScheduleId(String scheduleId);
 
+    // MEthod level Commenting
+
     /**
      * Removes the waitlist entry.
      *
-     * @param waitlistId the waitlist ID
+     * @param waitlistId the waitlist id
      */
     void removeWaitlistEntry(String waitlistId);
 }

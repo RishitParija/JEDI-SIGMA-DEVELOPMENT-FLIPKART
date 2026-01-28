@@ -5,14 +5,18 @@ import java.util.List;
 import com.flipfit.bean.GymCentre;
 import com.flipfit.bean.GymCustomer;
 
+/// Classs level Comminting
+
 // TODO: Auto-generated Javadoc
 /**
- * The Class GymCustomerService.
+ * The Interface GymCustomerService.
  *
  * @author Rishit
  * @ClassName "GymCustomerService"
  */
 public interface GymCustomerService {
+
+    // MEthod level Commenting
 
     /**
      * Gets gyms by city.
@@ -22,15 +26,19 @@ public interface GymCustomerService {
      */
     List<GymCentre> getGymsByCity(String city);
 
+    // MEthod level Commenting
+
     /**
      * Books slot.
      *
-     * @param gymId  the gym ID
-     * @param slotId the slot ID
+     * @param gymId  the gym id
+     * @param slotId the slot id
      * @param date   the date
      * @return true, if successful
      */
     boolean bookSlot(String gymId, String slotId, LocalDate date);
+
+    // MEthod level Commenting
 
     /**
      * Registers customer.
@@ -38,6 +46,8 @@ public interface GymCustomerService {
      * @param customer the customer
      */
     void registerCustomer(GymCustomer customer);
+
+    // MEthod level Commenting
 
     /**
      * Validates customer.
@@ -48,6 +58,8 @@ public interface GymCustomerService {
      */
     boolean validateCustomer(String username, String password);
 
+    // MEthod level Commenting
+
     /**
      * Gets customer by username.
      *
@@ -56,18 +68,22 @@ public interface GymCustomerService {
      */
     GymCustomer getCustomerByUsername(String username);
 
+    // MEthod level Commenting
+
     /**
      * Update wallet.
      *
-     * @param userId the user ID
+     * @param userId the user id
      * @param amount the amount
      */
     void updateWallet(String userId, double amount);
 
+    // MEthod level Commenting
+
     /**
      * Gets schedules by gym and date.
      *
-     * @param gymId the gym ID
+     * @param gymId the gym id
      * @param date  the date
      * @return the schedules by gym and date
      */

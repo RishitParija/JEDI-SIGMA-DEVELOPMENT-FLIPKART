@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/// Classs level Comminting
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class CustomerDAOImpl.
@@ -16,6 +18,8 @@ import java.sql.SQLException;
  * @ClassName "CustomerDAOImpl"
  */
 public class CustomerDAOImpl implements CustomerDAO {
+
+    // MEthod level Commenting
 
     /**
      * Registers customer.
@@ -51,6 +55,8 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Validates login.
      *
@@ -71,6 +77,8 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
         return false;
     }
+
+    // MEthod level Commenting
 
     /**
      * Gets customer by username.
@@ -100,10 +108,12 @@ public class CustomerDAOImpl implements CustomerDAO {
         return null;
     }
 
+    // MEthod level Commenting
+
     /**
      * Update wallet balance.
      *
-     * @param userId the user ID
+     * @param userId the user id
      * @param amount the amount
      */
     @Override

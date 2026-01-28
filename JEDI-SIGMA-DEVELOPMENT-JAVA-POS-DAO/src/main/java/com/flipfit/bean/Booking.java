@@ -20,10 +20,10 @@ public class Booking {
     /**
      * Instantiates a new booking.
      *
-     * @param bookingId  the booking ID
-     * @param userId     the user ID
-     * @param scheduleId the schedule ID
-     * @param gymId      the gym ID
+     * @param bookingId  the booking id
+     * @param userId     the user id
+     * @param scheduleId the schedule id
+     * @param gymId      the gym id
      * @param date       the date
      * @param status     the status
      */

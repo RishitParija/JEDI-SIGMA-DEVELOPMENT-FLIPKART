@@ -13,12 +13,12 @@ public class GymAdmin extends User {
     /**
      * Instantiates a new gym admin.
      *
-     * @param userId       the user ID
+     * @param userId       the user id
      * @param username     the username
      * @param name         the name
      * @param email        the email
      * @param passwordHash the password hash
-     * @param employeeId   the employee ID
+     * @param employeeId   the employee id
      */
     public GymAdmin(String userId, String username, String name, String email, String passwordHash, String employeeId) {
         this.setUserId(userId);

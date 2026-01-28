@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class BookingServiceImpl.
  *
@@ -26,6 +29,8 @@ public class BookingServiceImpl implements BookingService {
     private BookingDAO bookingDAO = new BookingDAOImpl();
     private ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
     private SlotDAO slotDAO = new SlotDAOImpl();
+
+    // MEthod level Commenting
 
     @Override
     public Booking addBooking(String userId, String scheduleId) {
@@ -55,25 +60,33 @@ public class BookingServiceImpl implements BookingService {
         }
     }
 
+    // MEthod level Commenting
+
     @Override
     public List<Booking> getAllBookings() {
         return bookingDAO.getAllBookings();
     }
+
+    // MEthod level Commenting
 
     @Override
     public List<Booking> getBookingsByGym(String gymId) {
         return new ArrayList<>(); // Needs BookingDAO support for gymId lookup
     }
 
+    // MEthod level Commenting
+
     @Override
     public List<Booking> getBookingsByUserId(String userId) {
         return bookingDAO.getBookingsByUserId(userId);
     }
 
+    // MEthod level Commenting
+
     /**
      * Cancel booking and update seats/waitlist.
      *
-     * @param bookingId the booking ID
+     * @param bookingId the booking id
      * @return true, if successful
      */
     @Override
@@ -112,10 +125,14 @@ public class BookingServiceImpl implements BookingService {
         }
     }
 
+    // MEthod level Commenting
+
     @Override
     public com.flipfit.bean.Schedule getScheduleById(String scheduleId) {
         return scheduleDAO.getScheduleById(scheduleId);
     }
+
+    // MEthod level Commenting
 
     @Override
     public com.flipfit.bean.Slot getSlotById(String slotId) {

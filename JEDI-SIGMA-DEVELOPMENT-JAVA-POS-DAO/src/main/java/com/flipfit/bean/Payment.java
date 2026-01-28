@@ -23,8 +23,8 @@ public class Payment {
     /**
      * Instantiates a new payment.
      *
-     * @param paymentId the payment ID
-     * @param bookingId the booking ID
+     * @param paymentId the payment id
+     * @param bookingId the booking id
      * @param amount    the amount
      * @param status    the status
      */

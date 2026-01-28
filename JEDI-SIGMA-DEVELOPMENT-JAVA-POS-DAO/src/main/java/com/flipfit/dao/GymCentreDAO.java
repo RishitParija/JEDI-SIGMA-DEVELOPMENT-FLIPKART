@@ -3,6 +3,9 @@ package com.flipfit.dao;
 import com.flipfit.bean.GymCentre;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Interface GymCentreDAO.
  *
@@ -10,6 +13,9 @@ import java.util.List;
  * @ClassName "GymCentreDAO"
  */
 public interface GymCentreDAO {
+
+    // MEthod level Commenting
+
     /**
      * Adds the gym centre.
      *
@@ -17,13 +23,17 @@ public interface GymCentreDAO {
      */
     void addGymCentre(GymCentre centre);
 
+    // MEthod level Commenting
+
     /**
      * Gets gyms by owner id.
      *
-     * @param ownerId the owner ID
+     * @param ownerId the owner id
      * @return the gyms by owner id
      */
     List<GymCentre> getGymsByOwnerId(String ownerId);
+
+    // MEthod level Commenting
 
     /**
      * Gets gyms by city.
@@ -33,10 +43,12 @@ public interface GymCentreDAO {
      */
     List<GymCentre> getGymsByCity(String city);
 
+    // MEthod level Commenting
+
     /**
      * Gets all gym centres.
      *
-     * @return the list of all gym centres
+     * @return the all gym centres
      */
     List<GymCentre> getAllGymCentres();
 }

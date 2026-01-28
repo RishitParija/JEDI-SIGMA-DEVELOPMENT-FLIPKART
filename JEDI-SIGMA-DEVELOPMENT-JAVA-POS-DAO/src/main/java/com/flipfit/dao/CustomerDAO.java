@@ -2,6 +2,8 @@ package com.flipfit.dao;
 
 import com.flipfit.bean.GymCustomer;
 
+/// Classs level Comminting
+
 // TODO: Auto-generated Javadoc
 /**
  * The Interface CustomerDAO.
@@ -11,12 +13,16 @@ import com.flipfit.bean.GymCustomer;
  */
 public interface CustomerDAO {
 
+    // MEthod level Commenting
+
     /**
      * Registers customer.
      *
      * @param customer the customer
      */
     void registerCustomer(GymCustomer customer);
+
+    // MEthod level Commenting
 
     /**
      * Validates login.
@@ -27,6 +33,8 @@ public interface CustomerDAO {
      */
     boolean validateLogin(String username, String password);
 
+    // MEthod level Commenting
+
     /**
      * Gets customer by username.
      *
@@ -35,10 +43,12 @@ public interface CustomerDAO {
      */
     GymCustomer getCustomerByUsername(String username);
 
+    // MEthod level Commenting
+
     /**
      * Update wallet balance.
      *
-     * @param userId the user ID
+     * @param userId the user id
      * @param amount the amount
      */
     void updateWalletBalance(String userId, double amount);

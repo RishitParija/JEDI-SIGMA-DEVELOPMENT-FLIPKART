@@ -11,6 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class BookingDAOImpl.
  *
@@ -18,6 +21,8 @@ import java.util.List;
  * @ClassName "BookingDAOImpl"
  */
 public class BookingDAOImpl implements BookingDAO {
+
+    // MEthod level Commenting
 
     /**
      * Adds the booking.
@@ -40,10 +45,12 @@ public class BookingDAOImpl implements BookingDAO {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets bookings by user id.
      *
-     * @param userId the user ID
+     * @param userId the user id
      * @return the bookings by user id
      */
     @Override
@@ -69,10 +76,12 @@ public class BookingDAOImpl implements BookingDAO {
         return bookings;
     }
 
+    // MEthod level Commenting
+
     /**
      * Cancel booking.
      *
-     * @param bookingId the booking ID
+     * @param bookingId the booking id
      */
     @Override
     public void cancelBooking(String bookingId) {
@@ -85,10 +94,12 @@ public class BookingDAOImpl implements BookingDAO {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets all bookings.
      *
-     * @return the list of all bookings
+     * @return the all bookings
      */
     @Override
     public List<Booking> getAllBookings() {
@@ -112,10 +123,12 @@ public class BookingDAOImpl implements BookingDAO {
         return bookings;
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets booking by id.
      *
-     * @param bookingId the booking ID
+     * @param bookingId the booking id
      * @return the booking
      */
     @Override

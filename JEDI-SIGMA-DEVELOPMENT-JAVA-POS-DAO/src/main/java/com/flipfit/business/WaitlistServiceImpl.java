@@ -6,6 +6,9 @@ import com.flipfit.dao.WaitlistDAOImpl;
 import java.util.List;
 import java.util.UUID;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class WaitlistServiceImpl.
  *
@@ -16,11 +19,15 @@ public class WaitlistServiceImpl implements WaitlistService {
 
     private WaitlistDAO waitlistDAO = new WaitlistDAOImpl();
 
+    // MEthod level Commenting
+
     @Override
     public void addToWaitlist(String userId, String scheduleId) {
         Waitlist entry = new Waitlist(UUID.randomUUID().toString(), userId, scheduleId);
         waitlistDAO.addWaitlistEntry(entry);
     }
+
+    // MEthod level Commenting
 
     @Override
     public boolean promoteToBooking(String scheduleId) {

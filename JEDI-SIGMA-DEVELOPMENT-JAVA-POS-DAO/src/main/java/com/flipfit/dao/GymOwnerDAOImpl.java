@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/// Classs level Comminting
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class GymOwnerDAOImpl.
@@ -16,6 +18,8 @@ import java.sql.SQLException;
  * @ClassName "GymOwnerDAOImpl"
  */
 public class GymOwnerDAOImpl implements GymOwnerDAO {
+
+    // MEthod level Commenting
 
     /**
      * Registers gym owner.
@@ -53,6 +57,15 @@ public class GymOwnerDAOImpl implements GymOwnerDAO {
         }
     }
 
+    // MEthod level Commenting
+
+    /**
+     * Validates login.
+     *
+     * @param username the username
+     * @param password the password
+     * @return true, if successful
+     */
     @Override
     public boolean validateLogin(String username, String password) {
         try (Connection conn = DBConnection.getConnection();
@@ -66,6 +79,8 @@ public class GymOwnerDAOImpl implements GymOwnerDAO {
         }
         return false;
     }
+
+    // MEthod level Commenting
 
     /**
      * Gets gym owner by username.

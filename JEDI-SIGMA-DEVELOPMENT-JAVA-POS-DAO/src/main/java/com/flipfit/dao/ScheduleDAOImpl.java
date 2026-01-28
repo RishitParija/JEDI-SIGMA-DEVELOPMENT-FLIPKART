@@ -12,6 +12,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class ScheduleDAOImpl.
  *
@@ -19,6 +22,8 @@ import java.util.List;
  * @ClassName "ScheduleDAOImpl"
  */
 public class ScheduleDAOImpl implements ScheduleDAO {
+
+    // MEthod level Commenting
 
     /**
      * Adds the schedule.
@@ -39,10 +44,12 @@ public class ScheduleDAOImpl implements ScheduleDAO {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets schedule by id.
      *
-     * @param scheduleId the schedule ID
+     * @param scheduleId the schedule id
      * @return the schedule by id
      */
     @Override
@@ -65,6 +72,8 @@ public class ScheduleDAOImpl implements ScheduleDAO {
         }
         return null;
     }
+
+    // MEthod level Commenting
 
     /**
      * Gets schedules by date.
@@ -94,10 +103,12 @@ public class ScheduleDAOImpl implements ScheduleDAO {
         return schedules;
     }
 
+    // MEthod level Commenting
+
     /**
      * Update schedule seats.
      *
-     * @param scheduleId     the schedule ID
+     * @param scheduleId     the schedule id
      * @param availableSeats the available seats
      */
     @Override

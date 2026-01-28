@@ -5,6 +5,9 @@ import com.flipfit.bean.GymCentre;
 import com.flipfit.bean.GymOwner;
 import com.flipfit.bean.Slot;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Interface GymOwnerService.
  *
@@ -12,12 +15,17 @@ import com.flipfit.bean.Slot;
  * @ClassName "GymOwnerService"
  */
 public interface GymOwnerService {
+
+    // MEthod level Commenting
+
     /**
      * Registers centre.
      *
      * @param centre the centre
      */
     void registerCentre(GymCentre centre);
+
+    // MEthod level Commenting
 
     /**
      * Adds slot.
@@ -26,21 +34,27 @@ public interface GymOwnerService {
      */
     void addSlot(Slot slot);
 
+    // MEthod level Commenting
+
     /**
      * Creates schedule.
      *
-     * @param slotId the slot ID
+     * @param slotId the slot id
      * @param date   the date
      */
     void createSchedule(String slotId, java.time.LocalDate date);
 
+    // MEthod level Commenting
+
     /**
      * Gets centres by owner id.
      *
-     * @param ownerId the owner ID
+     * @param ownerId the owner id
      * @return the centres by owner id
      */
     List<GymCentre> getCentresByOwnerId(String ownerId);
+
+    // MEthod level Commenting
 
     /**
      * Registers gym owner.
@@ -48,6 +62,8 @@ public interface GymOwnerService {
      * @param owner the gym owner
      */
     void registerGymOwner(GymOwner owner);
+
+    // MEthod level Commenting
 
     /**
      * Validates login.
@@ -58,6 +74,8 @@ public interface GymOwnerService {
      */
     boolean validateLogin(String username, String password);
 
+    // MEthod level Commenting
+
     /**
      * Gets gym owner by username.
      *
@@ -66,10 +84,12 @@ public interface GymOwnerService {
      */
     GymOwner getGymOwnerByUsername(String username);
 
+    // MEthod level Commenting
+
     /**
      * Gets slots by centre id.
      *
-     * @param centreId the centre ID
+     * @param centreId the centre id
      * @return the slots by centre id
      */
     List<Slot> getSlotsByCentreId(String centreId);

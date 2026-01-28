@@ -2,6 +2,8 @@ package com.flipfit.dao;
 
 import com.flipfit.bean.GymOwner;
 
+/// Classs level Comminting
+
 // TODO: Auto-generated Javadoc
 /**
  * The Interface GymOwnerDAO.
@@ -11,12 +13,16 @@ import com.flipfit.bean.GymOwner;
  */
 public interface GymOwnerDAO {
 
+    // MEthod level Commenting
+
     /**
      * Registers gym owner.
      *
      * @param owner the gym owner
      */
     void registerGymOwner(GymOwner owner);
+
+    // MEthod level Commenting
 
     /**
      * Validates login.
@@ -26,6 +32,8 @@ public interface GymOwnerDAO {
      * @return true, if successful
      */
     boolean validateLogin(String username, String password);
+
+    // MEthod level Commenting
 
     /**
      * Gets gym owner by username.

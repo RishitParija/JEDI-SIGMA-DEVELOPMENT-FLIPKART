@@ -1,5 +1,7 @@
 package com.flipfit.business;
 
+/// Classs level Comminting
+
 // TODO: Auto-generated Javadoc
 /**
  * The Interface UserService.
@@ -8,10 +10,14 @@ package com.flipfit.business;
  * @ClassName "UserService"
  */
 public interface UserService {
+    // MEthod level Commenting
+
     /**
      * Login.
      */
     void login();
+
+    // MEthod level Commenting
 
     /**
      * Logout.

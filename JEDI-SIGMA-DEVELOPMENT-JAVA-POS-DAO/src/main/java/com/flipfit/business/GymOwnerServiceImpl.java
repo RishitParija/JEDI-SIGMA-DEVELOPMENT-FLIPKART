@@ -17,6 +17,9 @@ import com.flipfit.exception.RegistrationNotDoneException;
 import com.flipfit.validation.Validator;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class GymOwnerServiceImpl.
  *
@@ -29,6 +32,8 @@ public class GymOwnerServiceImpl implements GymOwnerService {
     private GymCentreDAO gymCentreDAO = new GymCentreDAOImpl();
     private SlotDAO slotDAO = new SlotDAOImpl();
     private ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+
+    // MEthod level Commenting
 
     /**
      * Registers centre.
@@ -46,6 +51,8 @@ public class GymOwnerServiceImpl implements GymOwnerService {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Adds slot.
      *
@@ -57,10 +64,12 @@ public class GymOwnerServiceImpl implements GymOwnerService {
         System.out.println("Slot added.");
     }
 
+    // MEthod level Commenting
+
     /**
      * Creates schedule.
      *
-     * @param slotId the slot ID
+     * @param slotId the slot id
      * @param date   the date
      */
     @Override
@@ -70,16 +79,20 @@ public class GymOwnerServiceImpl implements GymOwnerService {
         System.out.println("Schedule created.");
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets centres by owner id.
      *
-     * @param ownerId the owner ID
+     * @param ownerId the owner id
      * @return the centres by owner id
      */
     @Override
     public List<GymCentre> getCentresByOwnerId(String ownerId) {
         return gymCentreDAO.getGymsByOwnerId(ownerId);
     }
+
+    // MEthod level Commenting
 
     /**
      * Registers gym owner.
@@ -111,6 +124,8 @@ public class GymOwnerServiceImpl implements GymOwnerService {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Validates login.
      *
@@ -123,10 +138,14 @@ public class GymOwnerServiceImpl implements GymOwnerService {
         return gymOwnerDAO.validateLogin(username, password);
     }
 
+    // MEthod level Commenting
+
     @Override
     public GymOwner getGymOwnerByUsername(String username) {
         return gymOwnerDAO.getGymOwnerByUsername(username);
     }
+
+    // MEthod level Commenting
 
     @Override
     public List<Slot> getSlotsByCentreId(String centreId) {

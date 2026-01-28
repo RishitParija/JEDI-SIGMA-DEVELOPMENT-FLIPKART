@@ -7,9 +7,14 @@ import com.flipfit.business.GymCustomerServiceImpl;
 import com.flipfit.business.GymOwnerService;
 import com.flipfit.business.GymOwnerServiceImpl;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.UUID;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class FlipFitApplication.
  *
@@ -17,6 +22,9 @@ import java.util.UUID;
  * @ClassName "FlipFitApplication"
  */
 public class FlipFitApplication {
+
+    // MEthod level Commenting
+
     /**
      * The main method.
      *
@@ -33,13 +41,14 @@ public class FlipFitApplication {
             int choice = 0;
 
             do {
-                System.out.println("\nWelcome to FlipFit Application");
-                System.out.println("1. Login");
-                System.out.println("2. Registration of the GymCustomer");
-                System.out.println("3. Registration of the GymOwner");
+                System.out.println("\nWelcome to the Flipfit Application");
+                System.out.println("\n1. Login");
+                System.out.println("2. Register as Gymcustomer");
+                System.out.println("3. Register as GymOwner");
                 System.out.println("4. Change Password");
                 System.out.println("5. Exit");
                 System.out.print("Enter your choice: ");
+                System.out.println();
 
                 if (scanner.hasNextInt()) {
                     choice = scanner.nextInt();
@@ -61,6 +70,10 @@ public class FlipFitApplication {
 
                     if (role.equalsIgnoreCase("Admin")) {
                         if (((com.flipfit.business.AdminServiceImpl) adminService).validateLogin(username, password)) {
+                            LocalDateTime now = LocalDateTime.now();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            System.out.println("\nWelcome " + username + "\t\t\t" + now.format(formatter));
+
                             AdminFlipFitMenu adminMenu = new AdminFlipFitMenu();
                             adminMenu.adminMenu();
                         } else {
@@ -68,7 +81,10 @@ public class FlipFitApplication {
                         }
                     } else if (role.equalsIgnoreCase("Customer")) {
                         if (gymCustomerService.validateCustomer(username, password)) {
-                            System.out.println("Login Successful!");
+                            LocalDateTime now = LocalDateTime.now();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            System.out.println("\nWelcome to " + username + "\t\t\t" + now.format(formatter));
+
                             GymCustomer customer = gymCustomerService.getCustomerByUsername(username);
                             GymCustomerFlipFitMenu customerMenu = new GymCustomerFlipFitMenu();
                             customerMenu.customerMenu(customer);
@@ -77,7 +93,10 @@ public class FlipFitApplication {
                         }
                     } else if (role.equalsIgnoreCase("GymOwner")) {
                         if (gymOwnerService.validateLogin(username, password)) {
-                            System.out.println("Login Successful!");
+                            LocalDateTime now = LocalDateTime.now();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            System.out.println("\nWelcome to " + username + "\t\t\t" + now.format(formatter));
+
                             GymOwner owner = gymOwnerService.getGymOwnerByUsername(username);
                             GymOwnerFlipFitMenu ownerMenu = new GymOwnerFlipFitMenu();
                             ownerMenu.gymOwnerMenu(owner);
@@ -128,8 +147,6 @@ public class FlipFitApplication {
                     String phone = scanner.nextLine();
                     System.out.println("Enter Aadhar Card (12 digits): ");
                     String aadhar = scanner.nextLine();
-                    // System.out.println("Enter GST Number: ");
-                    // scanner.nextLine(); // consume input
 
                     // Create Bean
                     GymOwner owner = new GymOwner(UUID.randomUUID().toString(), username, name, email, password, pan,

@@ -6,6 +6,7 @@ public class SQLConstants {
     public static final String APPROVE_GYM_OWNER_QUERY = "UPDATE GymOwner SET isVerified = TRUE WHERE userId = ?";
     public static final String APPROVE_GYM_CENTRE_QUERY = "UPDATE GymCentre SET isApproved = TRUE WHERE centreId = ?";
     public static final String GET_PENDING_GYM_OWNERS_QUERY = "SELECT * FROM User u JOIN GymOwner o ON u.userId = o.userId WHERE o.isVerified = FALSE";
+    public static final String GET_ALL_GYM_OWNERS_QUERY = "SELECT * FROM User u JOIN GymOwner o ON u.userId = o.userId";
     public static final String GET_PENDING_GYM_CENTRES_QUERY = "SELECT * FROM GymCentre WHERE isApproved = FALSE";
 
     // Customer DAO Queries

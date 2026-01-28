@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class WaitlistDAOImpl.
  *
@@ -18,6 +21,13 @@ import java.util.List;
  */
 public class WaitlistDAOImpl implements WaitlistDAO {
 
+    // MEthod level Commenting
+
+    /**
+     * Adds the to waitlist.
+     *
+     * @param waitlist the waitlist entry
+     */
     @Override
     public void addWaitlistEntry(Waitlist waitlist) {
         try (Connection conn = DBConnection.getConnection();
@@ -31,6 +41,14 @@ public class WaitlistDAOImpl implements WaitlistDAO {
         }
     }
 
+    // MEthod level Commenting
+
+    /**
+     * Gets waitlist by schedule.
+     *
+     * @param scheduleId the schedule id
+     * @return the waitlist entries
+     */
     @Override
     public List<Waitlist> getWaitlistByScheduleId(String scheduleId) {
         List<Waitlist> waitlist = new ArrayList<>();
@@ -43,9 +61,6 @@ public class WaitlistDAOImpl implements WaitlistDAO {
                         rs.getString("waitlistId"),
                         rs.getString("userId"),
                         rs.getString("scheduleId"));
-                // requestDate is set to LocalDateTime.now() in constructor by default,
-                // but ideally we should fetch from DB.
-                // For simplicity, keeping it basic.
                 waitlist.add(entry);
             }
         } catch (SQLException e) {
@@ -54,6 +69,13 @@ public class WaitlistDAOImpl implements WaitlistDAO {
         return waitlist;
     }
 
+    // MEthod level Commenting
+
+    /**
+     * Removes the waitlist entry.
+     *
+     * @param waitlistId the waitlist id
+     */
     @Override
     public void removeWaitlistEntry(String waitlistId) {
         try (Connection conn = DBConnection.getConnection();

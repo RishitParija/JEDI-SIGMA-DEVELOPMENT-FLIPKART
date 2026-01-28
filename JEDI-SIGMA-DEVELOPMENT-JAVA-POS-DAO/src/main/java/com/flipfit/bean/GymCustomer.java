@@ -13,7 +13,7 @@ public class GymCustomer extends User {
     /**
      * Instantiates a new gym customer.
      *
-     * @param userId        the user ID
+     * @param userId        the user id
      * @param username      the username
      * @param name          the name
      * @param email         the email

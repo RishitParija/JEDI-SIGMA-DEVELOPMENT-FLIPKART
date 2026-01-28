@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class NotificationDAOImpl.
  *
@@ -17,11 +20,13 @@ import java.util.List;
  */
 public class NotificationDAOImpl implements NotificationDAO {
 
+    // MEthod level Commenting
+
     /**
      * Adds the notification.
      *
-     * @param notificationId the notification ID
-     * @param userId         the user ID
+     * @param notificationId the notification id
+     * @param userId         the user id
      * @param message        the message
      * @param type           the type
      * @param status         the status
@@ -46,10 +51,12 @@ public class NotificationDAOImpl implements NotificationDAO {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets notifications by user id.
      *
-     * @param userId the user ID
+     * @param userId the user id
      * @return the notifications by user id
      */
     @Override

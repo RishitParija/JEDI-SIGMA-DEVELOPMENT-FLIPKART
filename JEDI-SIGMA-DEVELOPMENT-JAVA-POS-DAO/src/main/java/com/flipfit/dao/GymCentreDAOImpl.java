@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class GymCentreDAOImpl.
  *
@@ -17,6 +20,8 @@ import java.util.List;
  * @ClassName "GymCentreDAOImpl"
  */
 public class GymCentreDAOImpl implements GymCentreDAO {
+
+    // MEthod level Commenting
 
     /**
      * Adds the gym centre.
@@ -38,10 +43,12 @@ public class GymCentreDAOImpl implements GymCentreDAO {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets gyms by owner id.
      *
-     * @param ownerId the owner ID
+     * @param ownerId the owner id
      * @return the gyms by owner id
      */
     @Override
@@ -65,6 +72,8 @@ public class GymCentreDAOImpl implements GymCentreDAO {
         }
         return centres;
     }
+
+    // MEthod level Commenting
 
     /**
      * Gets gyms by city.
@@ -94,10 +103,12 @@ public class GymCentreDAOImpl implements GymCentreDAO {
         return centres;
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets all gym centres.
      *
-     * @return the list of all gym centres
+     * @return the all gym centres
      */
     @Override
     public List<GymCentre> getAllGymCentres() {

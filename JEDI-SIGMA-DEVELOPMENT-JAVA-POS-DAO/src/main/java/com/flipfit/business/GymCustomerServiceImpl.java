@@ -15,6 +15,9 @@ import com.flipfit.exception.RegistrationNotDoneException;
 import com.flipfit.exception.UserNotFoundException;
 import com.flipfit.validation.Validator;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class GymCustomerServiceImpl.
  *
@@ -27,6 +30,8 @@ public class GymCustomerServiceImpl implements GymCustomerService {
     private GymCentreDAO gymCentreDAO = new GymCentreDAOImpl();
     private ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
 
+    // MEthod level Commenting
+
     /**
      * Gets gyms by city.
      *
@@ -38,11 +43,13 @@ public class GymCustomerServiceImpl implements GymCustomerService {
         return gymCentreDAO.getGymsByCity(city);
     }
 
+    // MEthod level Commenting
+
     /**
      * Books slot.
      *
-     * @param gymId  the gym ID
-     * @param slotId the slot ID
+     * @param gymId  the gym id
+     * @param slotId the slot id
      * @param date   the date
      * @return true, if successful
      */
@@ -51,6 +58,8 @@ public class GymCustomerServiceImpl implements GymCustomerService {
         System.out.println("Please use the Booking Service directly or update this method to pass UserID.");
         return false;
     }
+
+    // MEthod level Commenting
 
     /**
      * Registers customer.
@@ -76,6 +85,8 @@ public class GymCustomerServiceImpl implements GymCustomerService {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Validates customer.
      *
@@ -87,6 +98,8 @@ public class GymCustomerServiceImpl implements GymCustomerService {
     public boolean validateCustomer(String username, String password) {
         return customerDAO.validateLogin(username, password);
     }
+
+    // MEthod level Commenting
 
     /**
      * Gets customer by username.
@@ -104,10 +117,12 @@ public class GymCustomerServiceImpl implements GymCustomerService {
         return customer;
     }
 
+    // MEthod level Commenting
+
     /**
      * Update wallet.
      *
-     * @param userId the user ID
+     * @param userId the user id
      * @param amount the amount
      */
     @Override
@@ -115,6 +130,8 @@ public class GymCustomerServiceImpl implements GymCustomerService {
         customerDAO.updateWalletBalance(userId, amount);
         System.out.println("Wallet updated for User ID: " + userId);
     }
+
+    // MEthod level Commenting
 
     @Override
     public List<com.flipfit.bean.Schedule> getSchedulesByGymAndDate(String gymId, LocalDate date) {

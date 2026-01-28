@@ -18,9 +18,9 @@ public class Waitlist {
     /**
      * Instantiates a new waitlist.
      *
-     * @param waitlistId the waitlist ID
-     * @param userId     the user ID
-     * @param scheduleId the schedule ID
+     * @param waitlistId the waitlist id
+     * @param userId     the user id
+     * @param scheduleId the schedule id
      */
     public Waitlist(String waitlistId, String userId, String scheduleId) {
         this.waitlistId = waitlistId;

@@ -19,8 +19,8 @@ public class Schedule {
     /**
      * Instantiates a new schedule.
      *
-     * @param scheduleId     the schedule ID
-     * @param slotId         the slot ID
+     * @param scheduleId     the schedule id
+     * @param slotId         the slot id
      * @param date           the date
      * @param availableSeats the available seats
      */

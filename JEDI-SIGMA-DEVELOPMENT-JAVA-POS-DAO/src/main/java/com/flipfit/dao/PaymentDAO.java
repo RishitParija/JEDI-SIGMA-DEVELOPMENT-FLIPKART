@@ -2,6 +2,9 @@ package com.flipfit.dao;
 
 import com.flipfit.bean.Payment;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Interface PaymentDAO.
  *
@@ -9,6 +12,9 @@ import com.flipfit.bean.Payment;
  * @ClassName "PaymentDAO"
  */
 public interface PaymentDAO {
+
+    // MEthod level Commenting
+
     /**
      * Adds the payment.
      *

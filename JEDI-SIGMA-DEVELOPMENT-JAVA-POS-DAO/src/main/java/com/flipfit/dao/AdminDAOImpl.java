@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/// Classs level Comminting
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class AdminDAOImpl.
@@ -19,6 +21,8 @@ import java.util.List;
  * @ClassName "AdminDAOImpl"
  */
 public class AdminDAOImpl implements AdminDAO {
+
+    // MEthod level Commenting
 
     /**
      * Validates login.
@@ -41,10 +45,12 @@ public class AdminDAOImpl implements AdminDAO {
         return false;
     }
 
+    // MEthod level Commenting
+
     /**
      * Approves gym owner.
      *
-     * @param ownerId the owner ID
+     * @param ownerId the owner id
      */
     @Override
     public void approveGymOwner(String ownerId) {
@@ -57,10 +63,12 @@ public class AdminDAOImpl implements AdminDAO {
         }
     }
 
+    // MEthod level Commenting
+
     /**
      * Approves gym centre.
      *
-     * @param centreId the centre ID
+     * @param centreId the centre id
      */
     @Override
     public void approveGymCentre(String centreId) {
@@ -72,6 +80,8 @@ public class AdminDAOImpl implements AdminDAO {
             e.printStackTrace();
         }
     }
+
+    // MEthod level Commenting
 
     /**
      * Gets pending gym owners.
@@ -108,6 +118,8 @@ public class AdminDAOImpl implements AdminDAO {
         return pendingOwners;
     }
 
+    // MEthod level Commenting
+
     /**
      * Gets pending gym centres.
      *
@@ -132,5 +144,65 @@ public class AdminDAOImpl implements AdminDAO {
             e.printStackTrace();
         }
         return pendingCentres;
+    }
+
+    // MEthod level Commenting
+
+    /**
+     * Gets all gym owners.
+     *
+     * @return the all gym owners
+     */
+    @Override
+    public List<GymOwner> getAllGymOwners() {
+        List<GymOwner> allOwners = new ArrayList<>();
+        try (Connection conn = DBConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(SQLConstants.GET_ALL_GYM_OWNERS_QUERY);
+                ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                GymOwner owner = new GymOwner(
+                        rs.getString("userId"),
+                        rs.getString("username"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("hashedPassword"),
+                        rs.getString("panCard"),
+                        rs.getString("phoneNumber"),
+                        rs.getString("aadharCard"));
+                owner.setIsVerified(rs.getBoolean("isVerified"));
+                allOwners.add(owner);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allOwners;
+    }
+
+    // MEthod level Commenting
+
+    /**
+     * Gets all gym centres.
+     *
+     * @return the all gym centres
+     */
+    @Override
+    public List<GymCentre> getAllGymCentres() {
+        List<GymCentre> allCentres = new ArrayList<>();
+        try (Connection conn = DBConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(SQLConstants.GET_ALL_GYM_CENTRES_QUERY);
+                ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                GymCentre centre = new GymCentre();
+                centre.setCentreId(rs.getString("centreId"));
+                centre.setOwnerId(rs.getString("ownerId"));
+                centre.setName(rs.getString("name"));
+                centre.setCity(rs.getString("city"));
+                centre.setApproved(rs.getBoolean("isApproved"));
+                allCentres.add(centre);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allCentres;
     }
 }

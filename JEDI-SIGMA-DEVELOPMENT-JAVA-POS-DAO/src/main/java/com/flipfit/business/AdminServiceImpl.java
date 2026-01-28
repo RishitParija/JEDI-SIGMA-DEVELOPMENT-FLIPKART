@@ -11,7 +11,11 @@ import com.flipfit.dao.GymCentreDAO;
 import com.flipfit.dao.GymCentreDAOImpl;
 import com.flipfit.exception.InvalidApprovalException;
 import java.util.List;
+import java.util.stream.Collectors;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class AdminServiceImpl.
  *
@@ -24,6 +28,8 @@ public class AdminServiceImpl implements AdminService {
     private BookingDAO bookingDAO = new BookingDAOImpl();
     private GymCentreDAO gymCentreDAO = new GymCentreDAOImpl();
 
+    // MEthod level Commenting
+
     @Override
     public void approveGymOwner(String ownerId) {
         try {
@@ -34,6 +40,8 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
+    // MEthod level Commenting
+
     @Override
     public void approveGymCentre(String centreId) {
         try {
@@ -43,6 +51,8 @@ public class AdminServiceImpl implements AdminService {
             throw new InvalidApprovalException("Approval failed for gym centre ID: " + centreId);
         }
     }
+
+    // MEthod level Commenting
 
     @Override
     public void viewAllGyms() {
@@ -56,7 +66,10 @@ public class AdminServiceImpl implements AdminService {
                         + ", Approved: " + gym.isApproved());
             }
         }
+        System.out.println();
     }
+
+    // MEthod level Commenting
 
     @Override
     public void viewPendingGymOwners() {
@@ -70,12 +83,17 @@ public class AdminServiceImpl implements AdminService {
                         "ID: " + owner.getUserId() + ", Name: " + owner.getName() + ", Email: " + owner.getEmail());
             }
         }
+        System.out.println();
     }
+
+    // MEthod level Commenting
 
     @Override
     public List<GymOwner> getPendingGymOwners() {
         return adminDAO.getPendingGymOwners();
     }
+
+    // MEthod level Commenting
 
     @Override
     public void viewPendingGymCentres() {
@@ -89,12 +107,17 @@ public class AdminServiceImpl implements AdminService {
                         "ID: " + centre.getCentreId() + ", Name: " + centre.getName() + ", City: " + centre.getCity());
             }
         }
+        System.out.println();
     }
+
+    // MEthod level Commenting
 
     @Override
     public List<GymCentre> getPendingGymCentres() {
         return adminDAO.getPendingGymCentres();
     }
+
+    // MEthod level Commenting
 
     @Override
     public void viewAllBookings() {
@@ -108,9 +131,49 @@ public class AdminServiceImpl implements AdminService {
                         + booking.getScheduleId() + ", Status: " + booking.getStatus());
             }
         }
+        System.out.println();
     }
+
+    // MEthod level Commenting
 
     public boolean validateLogin(String username, String password) {
         return adminDAO.validateLogin(username, password);
+    }
+
+    // MEthod level Commenting
+
+    @Override
+    public void viewGymOwnersByStatus(boolean verified) {
+        System.out.println("--- " + (verified ? "Verified" : "Unverified") + " Gym Owners ---");
+        List<GymOwner> allOwners = adminDAO.getAllGymOwners();
+        List<GymOwner> filtered = allOwners.stream()
+                .filter(owner -> owner.getIsVerified() == verified)
+                .collect(Collectors.toList());
+
+        if (filtered.isEmpty()) {
+            System.out.println("No owners found.");
+        } else {
+            filtered.forEach(o -> System.out
+                    .println("ID: " + o.getUserId() + ", Name: " + o.getName() + ", Email: " + o.getEmail()));
+        }
+        System.out.println();
+    }
+
+    // MEthod level Commenting
+
+    @Override
+    public void viewGymCentresByStatus(boolean approved) {
+        System.out.println("--- " + (approved ? "Approved" : "Pending") + " Gym Centres ---");
+        List<GymCentre> allCentres = adminDAO.getAllGymCentres();
+        List<GymCentre> filtered = allCentres.stream()
+                .filter(c -> c.isApproved() == approved)
+                .collect(Collectors.toList());
+
+        if (filtered.isEmpty()) {
+            System.out.println("No centres found.");
+        } else {
+            filtered.forEach(c -> System.out
+                    .println("ID: " + c.getCentreId() + ", Name: " + c.getName() + ", City: " + c.getCity()));
+        }
     }
 }

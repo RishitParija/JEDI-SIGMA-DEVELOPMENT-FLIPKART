@@ -18,8 +18,8 @@ public class Slot {
     /**
      * Instantiates a new slot.
      *
-     * @param slotId    the slot ID
-     * @param centreId  the centre ID
+     * @param slotId    the slot id
+     * @param centreId  the centre id
      * @param startTime the start time
      * @param endTime   the end time
      */

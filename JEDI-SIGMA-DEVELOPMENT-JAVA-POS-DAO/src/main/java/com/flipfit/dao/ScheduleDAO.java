@@ -4,6 +4,9 @@ import com.flipfit.bean.Schedule;
 import java.time.LocalDate;
 import java.util.List;
 
+/// Classs level Comminting
+
+// TODO: Auto-generated Javadoc
 /**
  * The Interface ScheduleDAO.
  *
@@ -11,6 +14,9 @@ import java.util.List;
  * @ClassName "ScheduleDAO"
  */
 public interface ScheduleDAO {
+
+    // MEthod level Commenting
+
     /**
      * Adds the schedule.
      *
@@ -18,13 +24,17 @@ public interface ScheduleDAO {
      */
     void addSchedule(Schedule schedule);
 
+    // MEthod level Commenting
+
     /**
      * Gets schedule by id.
      *
-     * @param scheduleId the schedule ID
+     * @param scheduleId the schedule id
      * @return the schedule by id
      */
     Schedule getScheduleById(String scheduleId);
+
+    // MEthod level Commenting
 
     /**
      * Gets schedules by date.
@@ -34,10 +44,12 @@ public interface ScheduleDAO {
      */
     List<Schedule> getSchedulesByDate(LocalDate date);
 
+    // MEthod level Commenting
+
     /**
      * Update schedule seats.
      *
-     * @param scheduleId     the schedule ID
+     * @param scheduleId     the schedule id
      * @param availableSeats the available seats
      */
     void updateScheduleSeats(String scheduleId, int availableSeats);

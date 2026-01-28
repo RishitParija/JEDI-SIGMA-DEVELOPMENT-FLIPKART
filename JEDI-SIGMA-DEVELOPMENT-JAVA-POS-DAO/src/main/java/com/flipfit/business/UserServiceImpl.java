@@ -1,5 +1,7 @@
 package com.flipfit.business;
 
+/// Classs level Comminting
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserServiceImpl.
@@ -8,12 +10,16 @@ package com.flipfit.business;
  * @ClassName "UserServiceImpl"
  */
 public class UserServiceImpl implements UserService {
+    // MEthod level Commenting
+
     /**
      * Login.
      */
     public void login() {
         System.out.println("login successful");
     }
+
+    // MEthod level Commenting
 
     /**
      * Logout.
