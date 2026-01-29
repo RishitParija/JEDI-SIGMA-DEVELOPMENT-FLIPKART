@@ -1,0 +1,11 @@
+com.flipfit.util
+com.flipfit.bean
+com.flipfit.constants
+com.flipfit.health
+com.flipfit.business
+com.flipfit.dao
+com.flipfit.exception
+com.flipfit
+com.flipfit.client
+com.flipfit.rest
+com.flipfit.validation
