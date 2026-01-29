@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /// Class level Commenting
 
@@ -31,15 +32,27 @@ public class SlotDAOImpl implements SlotDAO {
      */
     @Override
     public void addSlot(Slot slot) {
+        // FIX: Generate UUID for the Slot if it is null
+        if (slot.getSlotId() == null) {
+            slot.setSlotId(UUID.randomUUID().toString());
+        }
+
         try (Connection conn = DBConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(SQLConstants.ADD_SLOT_QUERY)) {
+
             stmt.setString(1, slot.getSlotId());
-            stmt.setString(2, slot.getCentreId());
+            stmt.setString(2, slot.getCentreId()); // Must be a valid UUID from GymCentre table
+
+            // Ensure time is not null to avoid NullPointerException
+            // Assumes getStartTime() returns LocalTime or String in "HH:MM:SS" format
             stmt.setTime(3, Time.valueOf(slot.getStartTime()));
             stmt.setTime(4, Time.valueOf(slot.getEndTime()));
+
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            // Recommended: Throw runtime exception to notify Service layer
+            throw new RuntimeException("Error adding slot: " + e.getMessage());
         }
     }
 

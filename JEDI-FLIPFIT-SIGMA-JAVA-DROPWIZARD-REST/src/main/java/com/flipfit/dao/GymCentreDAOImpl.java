@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /// Class level Commenting
 
@@ -30,13 +31,21 @@ public class GymCentreDAOImpl implements GymCentreDAO {
      */
     @Override
     public void addGymCentre(GymCentre centre) {
+        if (centre.getCentreId() == null) {
+            centre.setCentreId(UUID.randomUUID().toString());
+        }
+
         try (Connection conn = DBConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(SQLConstants.ADD_GYM_CENTRE_QUERY)) {
+
             stmt.setString(1, centre.getCentreId());
             stmt.setString(2, centre.getOwnerId());
             stmt.setString(3, centre.getName());
             stmt.setString(4, centre.getCity());
+
+            // FIX: Just use the value directly. It defaults to false if not set.
             stmt.setBoolean(5, centre.isApproved());
+
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

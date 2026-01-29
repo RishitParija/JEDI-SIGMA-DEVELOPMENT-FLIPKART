@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /// Class level Commenting
 
@@ -32,15 +33,32 @@ public class ScheduleDAOImpl implements ScheduleDAO {
      */
     @Override
     public void addSchedule(Schedule schedule) {
+        // FIX 1: Generate UUID for the Schedule if null
+        if (schedule.getScheduleId() == null) {
+            schedule.setScheduleId(UUID.randomUUID().toString());
+        }
+
         try (Connection conn = DBConnection.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(SQLConstants.ADD_SCHEDULE_QUERY)) {
+
             stmt.setString(1, schedule.getScheduleId());
             stmt.setString(2, schedule.getSlotId());
-            stmt.setDate(3, Date.valueOf(schedule.getDate()));
+
+            // Assumes schedule.getDate() returns a LocalDate or a valid String "yyyy-MM-dd"
+            if (schedule.getDate() != null) {
+                stmt.setDate(3, Date.valueOf(schedule.getDate()));
+            } else {
+                // Handle null date (throw error or set null depending on DB schema)
+                stmt.setDate(3, null);
+            }
+
             stmt.setInt(4, schedule.getAvailableSeats());
             stmt.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
+            // Recommended: Throw a runtime exception so the Service layer knows it failed
+            throw new RuntimeException("Error adding schedule: " + e.getMessage());
         }
     }
 

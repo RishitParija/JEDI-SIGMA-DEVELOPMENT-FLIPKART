@@ -46,6 +46,15 @@ public class Slot {
     }
 
     /**
+     * Sets the slot id.
+     *
+     * @param slotId the new slot id
+     */
+    public void setSlotId(String slotId) {
+        this.slotId = slotId;
+    }
+
+    /**
      * Gets the centre id.
      *
      * @return the centre id
