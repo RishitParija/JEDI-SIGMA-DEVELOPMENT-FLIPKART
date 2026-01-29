@@ -28,10 +28,10 @@ import java.util.List;
  */
 public class GymOwnerServiceImpl implements GymOwnerService {
 
-    private GymOwnerDAO gymOwnerDAO = new GymOwnerDAOImpl();
-    private GymCentreDAO gymCentreDAO = new GymCentreDAOImpl();
-    private SlotDAO slotDAO = new SlotDAOImpl();
-    private ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+    private GymOwnerDAOImpl gymOwnerDAO = new GymOwnerDAOImpl();
+    private GymCentreDAOImpl gymCentreDAO = new GymCentreDAOImpl();
+    private SlotDAOImpl slotDAO = new SlotDAOImpl();
+    private ScheduleDAOImpl scheduleDAO = new ScheduleDAOImpl();
 
     // Method level Commenting
 
@@ -120,7 +120,13 @@ public class GymOwnerServiceImpl implements GymOwnerService {
             gymOwnerDAO.registerGymOwner(owner);
             System.out.println("Gym Owner registered successfully for: " + owner.getName());
         } catch (Exception e) {
-            throw new RegistrationNotDoneException("Registration failed for gym owner: " + owner.getName());
+            // PRINT THE REAL REASON
+            // System.out.println("------------------------------------------------");
+            // System.out.println("REAL DB ERROR: " + e.getMessage());
+            // e.printStackTrace(); // This prints the full SQL error to your console
+            // System.out.println("------------------------------------------------");
+
+            throw new RegistrationNotDoneException("Registration failed: " + e.getMessage());
         }
     }
 

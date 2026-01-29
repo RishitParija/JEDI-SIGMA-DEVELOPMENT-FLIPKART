@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.UUID;
 
 /// Class level Commenting
 
@@ -28,11 +29,19 @@ public class CustomerDAOImpl implements CustomerDAO {
      */
     @Override
     public void registerCustomer(GymCustomer customer) {
+        // FIX: Generate a random UUID if the user ID is currently null
+        if (customer.getUserId() == null) {
+            String generatedId = UUID.randomUUID().toString();
+            customer.setUserId(generatedId);
+        }
+
         try (Connection conn = DBConnection.getConnection()) {
-            conn.setAutoCommit(false);
+            conn.setAutoCommit(false); // Start Transaction
+
             try (PreparedStatement uStmt = conn.prepareStatement(SQLConstants.REGISTER_USER_QUERY);
                     PreparedStatement cStmt = conn.prepareStatement(SQLConstants.REGISTER_CUSTOMER_QUERY)) {
 
+                // 1. Insert into generic User table
                 uStmt.setString(1, customer.getUserId());
                 uStmt.setString(2, customer.getUsername());
                 uStmt.setString(3, customer.getName());
@@ -41,7 +50,10 @@ public class CustomerDAOImpl implements CustomerDAO {
                 uStmt.setString(6, customer.getPhoneNumber());
                 uStmt.executeUpdate();
 
+                // 2. Insert into specific GymCustomer table
                 cStmt.setString(1, customer.getUserId());
+
+                // Ensure wallet balance is set (defaults to 0.0 if not set elsewhere)
                 cStmt.setDouble(2, customer.getWalletBalance());
                 cStmt.executeUpdate();
 
@@ -49,6 +61,7 @@ public class CustomerDAOImpl implements CustomerDAO {
             } catch (SQLException e) {
                 conn.rollback();
                 e.printStackTrace();
+                // Optional: Re-throw exception to notify the caller
             }
         } catch (SQLException e) {
             e.printStackTrace();

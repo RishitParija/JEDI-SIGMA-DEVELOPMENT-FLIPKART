@@ -1,5 +1,7 @@
 package com.flipfit.bean;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class User.
@@ -92,6 +94,7 @@ public abstract class User {
      *
      * @return the password hash
      */
+    @JsonProperty("passwordHash")
     public String getPasswordHash() {
         return hashedPassword;
     }
@@ -101,6 +104,7 @@ public abstract class User {
      *
      * @param hashedPassword the new password hash
      */
+    @JsonProperty("passwordHash")
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
     }

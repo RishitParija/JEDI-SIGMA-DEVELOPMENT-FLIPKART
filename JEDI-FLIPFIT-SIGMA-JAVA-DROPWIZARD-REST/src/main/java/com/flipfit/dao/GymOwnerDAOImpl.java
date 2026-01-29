@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.UUID;
 
 /// Class level Commenting
 
@@ -28,11 +29,18 @@ public class GymOwnerDAOImpl implements GymOwnerDAO {
      */
     @Override
     public void registerGymOwner(GymOwner owner) {
+        // 1. Generate UUID
+        if (owner.getUserId() == null) {
+            owner.setUserId(UUID.randomUUID().toString());
+        }
+
         try (Connection conn = DBConnection.getConnection()) {
             conn.setAutoCommit(false);
+
             try (PreparedStatement uStmt = conn.prepareStatement(SQLConstants.REGISTER_USER_QUERY);
                     PreparedStatement oStmt = conn.prepareStatement(SQLConstants.REGISTER_GYM_OWNER_QUERY)) {
 
+                // User Table
                 uStmt.setString(1, owner.getUserId());
                 uStmt.setString(2, owner.getUsername());
                 uStmt.setString(3, owner.getName());
@@ -41,22 +49,29 @@ public class GymOwnerDAOImpl implements GymOwnerDAO {
                 uStmt.setString(6, owner.getPhoneNumber());
                 uStmt.executeUpdate();
 
+                // 2. Insert into GymOwner Table
                 oStmt.setString(1, owner.getUserId());
                 oStmt.setString(2, owner.getPanCard());
-                oStmt.setBoolean(3, owner.getIsVerified());
+
+                // FIX: Check for null. If null, set to false.
+                boolean verifiedStatus = (owner.getIsVerified() != null) ? owner.getIsVerified() : false;
+                oStmt.setBoolean(3, verifiedStatus);
+
                 oStmt.setString(4, owner.getAadharCard());
                 oStmt.executeUpdate();
 
                 conn.commit();
             } catch (SQLException e) {
                 conn.rollback();
-                e.printStackTrace();
+                throw e; // Rethrow to the outer block
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            // FIX: Don't just print! Throw the runtime exception here.
+            throw new com.flipfit.exception.RegistrationNotDoneException(
+                    "Registration failed for gym owner: " + owner.getName());
         }
     }
-
     // Method level Commenting
 
     /**

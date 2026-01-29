@@ -18,9 +18,9 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {
 
-    private final GymCustomerService customerService = new GymCustomerServiceImpl();
-    private final GymOwnerService ownerService = new GymOwnerServiceImpl();
-    private final AdminService adminService = new AdminServiceImpl();
+    private final GymCustomerServiceImpl customerService = new GymCustomerServiceImpl();
+    private final GymOwnerServiceImpl ownerService = new GymOwnerServiceImpl();
+    private final AdminServiceImpl adminService = new AdminServiceImpl();
 
     @POST
     @Path("/login")
